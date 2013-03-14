@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset=utf-8>
-  <title>App</title>
-  <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8">
-  <script src="/application.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript" charset="utf-8">
-    var jQuery  = require("jqueryify");
-    var exports = this;
-    jQuery(function(){
-      var App = require("index");
-      exports.app = new App({el: $("body")});      
-    });
-  </script>
-  
-  <!-- Getting started script - should be removed -->
-  <script src="http://maccman-spine.herokuapp.com/start.js" type="text/javascript" charset="utf-8"></script>
-</head>
-<body></body>
+  <head>
+    <meta charset=utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>App</title>
+    <script src="/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/application.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8" media="screen">
+
+    <script type="text/javascript" charset="utf-8">
+      var exports = this;
+      $(function(){
+        var Portal = require("portal");
+        var options = {
+          el:            $('body'),
+          env:           'development',
+          current_user:  { id: '1230' }
+        };
+
+        exports.portal_app = new Portal(options);
+      });
+    </script>
+  </head>
+  <body></body>
 </html>
