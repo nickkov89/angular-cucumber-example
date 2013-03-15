@@ -1,6 +1,7 @@
 module.exports =
   # Elements
-  # ...
+
+  '^the? global header$':   '#brandfirst-header'
 
   # Fall through
 

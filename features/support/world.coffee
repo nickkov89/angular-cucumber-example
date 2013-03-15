@@ -2,8 +2,6 @@ Browser     = require 'zombie'
 { Factory } = require 'forgery'
 Hem         = require 'hem'
 nock        = require 'nock'
-selectors   = require './selectors'
-recorder    = require './recorder'
 should      = require 'should'
 
 # Hem options
@@ -19,12 +17,10 @@ Browser.debug = true if process.env.DEBUG == 'true'
 
 class World
   constructor: (callback) ->
-    @browser  = new Browser()
-    @recorder = recorder
-    @nock     = nock(Browser.site, { allowUnmocked: true })
-
-    #Enable this to log nock calls
-    #@nock.log(console.log)
+    @browser   = new Browser()
+    @selectors = require './selectors'
+    @nock      = nock(Browser.site, { allowUnmocked: true })
+                 #.log(console.log)
 
     nock('http://copycopter.example.com')
       .persist()
@@ -37,16 +33,16 @@ class World
 
   visit: (url, next) ->
     @browser.visit url, (err, browser, status) =>
-      console.log err if err
-      browser.wait (err, browser) =>
-        console.log err if err
+      throw err if err
+      browser.wait (err) =>
+        throw err if err
         @$ = @jQuery = browser.window.$
         next err, browser, status
 
   selectorFor: (locator) ->
-    for regexp, path of selectors
+    for regexp, path of @selectors
       if match = locator.match(new RegExp(regexp))
-        if path?() then path(match.slice(1)) else path
+        return if path?() then path(match.slice(1)) else path
 
   Factory: (factoryName, options) ->
     for key, value of options
