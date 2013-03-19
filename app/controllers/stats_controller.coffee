@@ -25,6 +25,6 @@ class StatsController extends Spine.Controller
       @charity.text(me.charity)
       @starsCount.text(me.stars_count)
       @awardsCount.text(me.top_awards_count)
-      @finishesCount.text(me.top_awards_count)
+      @finishesCount.text(me.top_finish_count)
 
 module.exports = StatsController

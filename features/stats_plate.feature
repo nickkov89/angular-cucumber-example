@@ -37,7 +37,6 @@ Feature: Member sees stats plate
     Then I should see "20" within the awards plate
 
   Scenario: Member sees top finishes count
-    Given I have 5 top 100 finishes
+    Given I have 30 top 100 finishes
     And I am on the portal page
-    Then I should see "5" within the finishes plate
-
+    Then I should see "30" within the finishes plate
