@@ -1,20 +1,20 @@
 { Spine } = require 'lib/setup'
 Brand     = require 'models/brand'
 
-class MyBrandsController extends Spine.Controller
+class NewBrandsController extends Spine.Controller
   attributes:
-    id: 'my-brands'
+    id: 'new-brands'
 
   elements:
-    '.my-brands-list': 'list'
+    '.new-brands-list': 'list'
 
   constructor: ->
     super
 
-    @html require('views/my_brands')
+    @html require('views/new_brands')
 
     Brand.bind 'refresh', =>
-      brands = Brand.myBrands()
+      brands = Brand.newBrands()
       @list.html require('views/shared/brand_box')(brands)
 
-module.exports = MyBrandsController
+module.exports = NewBrandsController

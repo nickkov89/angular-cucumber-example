@@ -7,4 +7,10 @@ class Brand extends Spine.Model
 
   @url: '/api/v2/brands'
 
+  @myBrands: ->
+    @select (brand) -> brand.crowd_participant
+
+  @newBrands: ->
+    @select (brand) -> !brand.crowd_participant
+
 module.exports = Brand

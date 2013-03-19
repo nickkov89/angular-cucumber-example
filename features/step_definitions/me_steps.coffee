@@ -37,8 +37,10 @@ module.exports = ->
     @me.top_finish_count = count
     next()
 
-  @Given /^I am participating with the following brands:$/, (table, next) ->
+  @Given /^I am (not )?participating with the following brands:$/, (negator, table, next) ->
     rows = table.hashes()
-    brands = rows.map (row) => @Factory('Brand', row)
+    brands = rows.map (row) =>
+      row.crowd_participant = false if negator
+      @Factory('Brand', row)
     @nock.get('/api/v2/brands').reply(200, JSON.stringify(brands))
     next()

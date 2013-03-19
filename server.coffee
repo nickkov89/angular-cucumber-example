@@ -30,6 +30,7 @@ _(10).times (i) ->
     name:         "Brand-#{1230 +i}"
     logo:         "http://dummyimage.com/50x50/ccc/555.png&text=logo"
     action_count: 3*i
+    crowd_participant: !(i%2)
   brands.push new Factory('Brand', brand)
 
 AppServer.get '/api/v2/brands', (env, callback) ->
