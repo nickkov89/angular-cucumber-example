@@ -1,4 +1,4 @@
-#require './spec/factories'
+require './spec/factories'
 {Factory} = require 'forgery'
 AppServer = require 'strata'
 path      = require 'path'
@@ -14,6 +14,11 @@ Portal = new Hem()
 less = require('hem-less')
 less.setOptions { compress: false }
 Portal.compilers.less = less.compiler
+
+# GET /api/v2/me
+AppServer.get '/api/v2/me', (env, callback) ->
+  body = JSON.stringify(new Factory('Me'))
+  AppServer.Response(body).send(callback)
 
 # GET application.css
 AppServer.get '/application.css', Portal.cssPackage().createServer()

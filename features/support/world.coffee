@@ -3,6 +3,10 @@ Browser     = require 'zombie'
 Hem         = require 'hem'
 nock        = require 'nock'
 should      = require 'should'
+selectors   = require './selectors'
+
+# Require the factories
+require '../../spec/factories'
 
 # Hem options
 hemOptions      = require '../../slug.json'
@@ -18,7 +22,6 @@ Browser.debug = true if process.env.DEBUG == 'true'
 class World
   constructor: (callback) ->
     @browser   = new Browser()
-    @selectors = require './selectors'
     @nock      = nock(Browser.site, { allowUnmocked: true })
                  #.log(console.log)
 
@@ -40,9 +43,18 @@ class World
         next err, browser, status
 
   selectorFor: (locator) ->
-    for regexp, path of @selectors
-      if match = locator.match(new RegExp(regexp))
-        return if path?() then path(match.slice(1)) else path
+    for regexp, path of selectors
+      regexp = new RegExp(regexp)
+
+      scope = ''
+      if match = locator.match(regexp)
+        if typeof path == 'string'
+          scope = path
+        else
+          scope = path.apply @, match.slice(1)
+        return scope
+
+    throw new Error("Could not find path for '#{locator}'")
 
   Factory: (factoryName, options) ->
     for key, value of options

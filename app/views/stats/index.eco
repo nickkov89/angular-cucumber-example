@@ -1,0 +1,6 @@
+<div class="me plate">
+  <img class="mug" src="#">
+  <h3 class="name"></h3>
+  <p class="location"></p>
+  <p><strong>Charity:</strong> <span class="charity"></span></p>
+</div>

@@ -1,7 +1,17 @@
 module.exports =
   # Elements
 
-  '^the? global header$':   '#brandfirst-header'
+  '^(.*) within (.*)$': (inner, outer) ->
+    return "#{@selectorFor(outer)} #{@selectorFor(inner)}"
+
+  '^the "([^"]*)" image$': (imageUrl) ->
+    return "img[src='#{imageUrl}']"
+
+  '^the (.+) plate$': (which) ->
+    return ".#{which}.plate"
+
+  '^the? global header$':  '#brandfirst-header'
+  '^the stats section$':   '.stats'
 
   # Fall through
 
