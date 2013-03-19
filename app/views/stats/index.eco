@@ -1,28 +1,32 @@
-<div class="me plate">
-  <img class="mug" src="#">
-  <h3 class="name"></h3>
-  <p class="location"></p>
-  <p><strong>Charity:</strong> <span class="charity"></span></p>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="me-plate plate span4">
+      <img class="mug" src="#">
+      <h3 class="name"></h3>
+      <p class="location"></p>
+      <p><strong>Charity:</strong> <span class="charity"></span></p>
+    </div>
 
-<!-- Temporarily static -->
-<div class="status plate">
-  <i class="icon-ok-sign"></i>
-  <span>in good standing <i class="icon-question-sign"></i></span>
-  <span>keep up the good work!</span>
-</div>
+    <!-- Temporarily static -->
+    <div class="status-plate plate span3">
+      <i class="icon-ok-sign status-icon"></i>
+      <div>in good standing <i class="icon-question-sign"></i></div>
+      <div>keep up the good work!</div>
+    </div>
 
-<div class="stars plate">
-  <span class="count stars-count"></span>
-  <span class="count-label">Stars</span>
-</div>
+    <div class="stars-plate plate span2">
+      <div class="count stars-count"></div>
+      <div class="count-label">Stars</div>
+    </div>
 
-<div class="awards plate">
-  <span class="count awards-count"></span>
-  <span class="count-label">Top Awards</span>
-</div>
+    <div class="awards-plate plate span1">
+      <div class="count awards-count"></div>
+      <div class="count-label">Top Awards</div>
+    </div>
 
-<div class="finishes plate">
-  <span class="count finishes-count"></span>
-  <span class="count-label">Top 100 Finishes</span>
+    <div class="finishes-plate plate span2">
+      <div class="count finishes-count"></div>
+      <div class="count-label">Top 100 Finishes</div>
+    </div>
+  </div>
 </div>

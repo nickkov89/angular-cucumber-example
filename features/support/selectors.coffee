@@ -8,7 +8,7 @@ module.exports =
     return "img[src='#{imageUrl}']"
 
   '^the (.+) plate$': (which) ->
-    return ".#{which}.plate"
+    return ".#{which}-plate"
 
   '^the? global header$':  '#brandfirst-header'
   '^the stats section$':   '.stats'
