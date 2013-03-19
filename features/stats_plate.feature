@@ -5,6 +5,7 @@ Feature: Member sees stats plate
   Scenario: Member sees all stats sections
     Given I am on the portal page
     Then I should see the me plate
+    And I should see the status plate
 
   Scenario: Member sees profile information in me plate
     Given my name is "Bruce Wayne"
@@ -17,3 +18,7 @@ Feature: Member sees stats plate
     And I should see "Williamsburg, NY" within the me plate
     And I should see "Red Cross" within the me plate
     And I should see the "/url/profile.jpg" image within the me plate
+
+  Scenario: Member sees current status with Crowdtap
+    Given I am on the portal page
+    Then I should see "in good standing" within the status plate

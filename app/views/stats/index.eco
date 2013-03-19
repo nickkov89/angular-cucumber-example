@@ -4,3 +4,10 @@
   <p class="location"></p>
   <p><strong>Charity:</strong> <span class="charity"></span></p>
 </div>
+
+<!-- Temporarily static -->
+<div class="status plate">
+  <i class="icon-ok-sign"></i>
+  <span>in good standing <i class="icon-question-sign"></i></span>
+  <span>keep up the good work!</span>
+</div>
