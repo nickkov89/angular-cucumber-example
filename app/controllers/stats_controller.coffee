@@ -5,10 +5,13 @@ class StatsController extends Spine.Controller
   className: 'stats'
 
   elements:
-    '.charity':   'charity'
-    '.location':  'location'
-    '.mug':       'mug'
-    '.name':      'name'
+    '.awards-count':    'awardsCount'
+    '.charity':         'charity'
+    '.finishes-count':  'finishesCount'
+    '.location':        'location'
+    '.mug':             'mug'
+    '.name':            'name'
+    '.stars-count':     'starsCount'
 
   constructor: ->
     super
@@ -20,5 +23,8 @@ class StatsController extends Spine.Controller
       @name.text("#{me.first_name} #{me.last_name[0]}.")
       @location.text("#{me.residence_city}, #{me.residence_state}")
       @charity.text(me.charity)
+      @starsCount.text(me.stars_count)
+      @awardsCount.text(me.top_awards_count)
+      @finishesCount.text(me.top_awards_count)
 
 module.exports = StatsController

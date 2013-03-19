@@ -11,3 +11,18 @@
   <span>in good standing <i class="icon-question-sign"></i></span>
   <span>keep up the good work!</span>
 </div>
+
+<div class="stars plate">
+  <span class="count stars-count"></span>
+  <span class="count-label">Stars</span>
+</div>
+
+<div class="awards plate">
+  <span class="count awards-count"></span>
+  <span class="count-label">Top Awards</span>
+</div>
+
+<div class="finishes plate">
+  <span class="count finishes-count"></span>
+  <span class="count-label">Top 100 Finishes</span>
+</div>
