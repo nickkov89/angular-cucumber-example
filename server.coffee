@@ -1,6 +1,7 @@
 require './spec/factories'
 {Factory} = require 'forgery'
 AppServer = require 'strata'
+_         = require 'underscore'
 path      = require 'path'
 Hem       = require 'hem'
 root      = path.resolve("./public")
@@ -18,6 +19,21 @@ Portal.compilers.less = less.compiler
 # GET /api/v2/me
 AppServer.get '/api/v2/me', (env, callback) ->
   body = JSON.stringify(new Factory('Me'))
+  AppServer.Response(body).send(callback)
+
+# GET /api/v2/brands
+brands = []
+_(10).times (i) ->
+  brand =
+    id:           "#{1230 + i}"
+    slug:         "brand-#{i}"
+    name:         "Brand-#{1230 +i}"
+    logo:         "http://dummyimage.com/50x50/ccc/555.png&text=logo"
+    action_count: 3*i
+  brands.push new Factory('Brand', brand)
+
+AppServer.get '/api/v2/brands', (env, callback) ->
+  body = JSON.stringify(brands)
   AppServer.Response(body).send(callback)
 
 # GET application.css

@@ -16,3 +16,13 @@ Factory.define 'Me',
   residence_state:    'NY'
   top_awards_count:   45
   top_finish_count:   12
+
+Factory.define 'Brand',
+  id:                 12345
+  name:               'Bexpedia'
+  slug:               'bexpedia'
+  description:        'The dreams of yesterday are the hopes of today and the reality of tomorrow.'
+  header_image_url:   'http://static.movember.com/uploads/images/2012/Homepage%20tiles/thanks.jpg'
+  logo:               'http://dummyimage.com/33x33/333/fff.jpg&text=logo'
+  action_count:       12
+  crowd_participant:  true

@@ -1,17 +1,25 @@
 module.exports =
   # Elements
 
+  # Shared
+
   '^(.*) within (.*)$': (inner, outer) ->
     return "#{@selectorFor(outer)} #{@selectorFor(inner)}"
 
   '^the "([^"]*)" image$': (imageUrl) ->
     return "img[src='#{imageUrl}']"
 
+  # Portal-specific
+
   '^the (.+) plate$': (which) ->
     return ".#{which}-plate"
 
-  '^the? global header$':  '#brandfirst-header'
-  '^the stats section$':   '.stats'
+  '^the "([^"]*)" brand box$': (slug) ->
+    return "a##{slug}.brand-box[href='/#{slug}']"
+
+  '^the? global header$':     '#brandfirst-header'
+  '^the stats section$':      '.stats'
+  '^the My Brands section$':  '#my-brands'
 
   # Fall through
 

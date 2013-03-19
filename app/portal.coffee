@@ -1,8 +1,10 @@
 { Spine } = require 'lib/setup'
 
-HeaderController = require 'controllers/header_controller'
-StatsController  = require 'controllers/stats_controller'
-Me               = require 'models/me'
+HeaderController   = require 'controllers/header_controller'
+StatsController    = require 'controllers/stats_controller'
+MyBrandsController = require 'controllers/my_brands_controller'
+Me                 = require 'models/me'
+Brand              = require 'models/brand'
 
 class Portal extends Spine.Controller
   elements:
@@ -16,7 +18,9 @@ class Portal extends Spine.Controller
 
     @append new HeaderController()
     @append new StatsController()
+    @append new MyBrandsController()
 
     Me.fetch()
+    Brand.fetch()
 
 module.exports = Portal

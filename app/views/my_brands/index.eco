@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <h2>My Brands</h2>
+      <div class="my-brands-list row"></div>
+    </div>
+  </div>
+</div>

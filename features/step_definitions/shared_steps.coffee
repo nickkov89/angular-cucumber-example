@@ -299,3 +299,9 @@ sharedSteps = module.exports = ->
   @Then /^I select "([^"]*)" from (.+)$/, (option, namedElement, next) ->
     @browser.select(@selectorFor(namedElement), option)
     next()
+
+  @Then /^(.*) should have a background image of "([^"]+)"$/, (selector, value, next) ->
+    selector = @selectorFor(selector)
+    @$(selector).css('background-image').should.eql "url(#{value})"
+
+    next()
