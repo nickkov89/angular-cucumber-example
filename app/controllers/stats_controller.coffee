@@ -12,6 +12,7 @@ class StatsController extends Spine.Controller
     '.mug':             'mug'
     '.name':            'name'
     '.stars-count':     'starsCount'
+    '.status-plate':    'statusPlate'
 
   constructor: ->
     super
@@ -26,5 +27,9 @@ class StatsController extends Spine.Controller
       @starsCount.text(me.stars_count)
       @awardsCount.text(me.top_awards_count)
       @finishesCount.text(me.top_finish_count)
+      if me.flags_count > 0
+        @statusPlate.html require('views/stats/status_warning')
+      else
+        @statusPlate.html require('views/stats/status_ok')
 
 module.exports = StatsController

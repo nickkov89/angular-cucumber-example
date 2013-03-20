@@ -44,3 +44,8 @@ module.exports = ->
       @Factory('Brand', row)
     @nock.get('/api/v2/brands').reply(200, JSON.stringify(brands))
     next()
+
+  @Given /^I have been flagged (\d+) times?$/, (count, next) ->
+    @me or= @Factory('Me')
+    @me.flags_count = count
+    next()

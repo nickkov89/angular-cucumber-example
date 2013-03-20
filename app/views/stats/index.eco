@@ -7,12 +7,7 @@
       <p><strong>Charity:</strong> <span class="charity"></span></p>
     </div>
 
-    <!-- Temporarily static -->
-    <div class="status-plate plate span3">
-      <i class="icon-ok-sign status-icon"></i>
-      <div>in good standing <i class="icon-question-sign"></i></div>
-      <div>keep up the good work!</div>
-    </div>
+    <div class="status-plate plate span3"></div>
 
     <div class="stars-plate plate span2">
       <div class="count stars-count"></div>

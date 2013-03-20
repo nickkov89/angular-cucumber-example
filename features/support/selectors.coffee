@@ -9,6 +9,9 @@ module.exports =
   '^the "([^"]*)" image$': (imageUrl) ->
     return "img[src='#{imageUrl}']"
 
+  '^the "([^"]*)" icon$': (name) ->
+    return "i.icon-#{name}"
+
   # Portal-specific
 
   '^the (.+) plate$': (which) ->
