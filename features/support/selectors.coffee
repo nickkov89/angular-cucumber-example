@@ -12,6 +12,12 @@ module.exports =
   '^the "([^"]*)" icon$': (name) ->
     return "i.icon-#{name}"
 
+  '^"([^"]*)" linking to "([^"]*)"$': (text, url) ->
+    return "a[href*='#{url}']:contains('#{text}')"
+
+  '^the brand menu item for brand "(.+)"$': (brand_id) ->
+    return "#brand-menu li.#{brand_id}"
+
   # Portal-specific
 
   '^the (.+) plate$': (which) ->
@@ -26,7 +32,7 @@ module.exports =
   '^the My Brands section$':                     '#my-brands'
   '^the New Brands section$':                    '#new-brands'
   '^the hide brands with no actions checkbox$':  '#hide-empty-brands'
-
+  '^the brand menu$':                            '#brand-menu'
   # Fall through
 
   '^(.+)$': (selector) ->
