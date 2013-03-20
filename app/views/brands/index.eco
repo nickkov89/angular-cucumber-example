@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="span4 offset4">
+      <label for="hide-empty-brands">
+        <input type="checkbox" id="hide-empty-brands" checked="checked">
+        Hide brands that don't have actions
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <h2>My Brands</h2>
+      <div id="my-brands" class="row"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <h2>New Brands</h2>
+      <div id="new-brands" class="row"></div>
+    </div>
+  </div>
+</div>

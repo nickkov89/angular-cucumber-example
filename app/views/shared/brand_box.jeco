@@ -1,5 +1,0 @@
-<a href="/<%= @slug %>" id="<%= @slug %>" class="brand-box span4" style="background-image: url(<%= @header_image_url %>)">
-  <img src="<%= @logo %>" class="brand-logo">
-  <h4 class="brand-name"><%= @name %></h4>
-  <div class="action-count"><%= @action_count %> new actions</div>
-</a>

@@ -5,4 +5,4 @@ Feature: Member sees all sections of the Portal
     Given I am on the portal page
     Then I should see the global header
     And I should see the stats section
-    And I should see the My Brands section
+    And I should see the brands section

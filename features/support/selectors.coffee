@@ -20,10 +20,12 @@ module.exports =
   '^the "([^"]*)" brand box$': (slug) ->
     return "a##{slug}.brand-box[href='/#{slug}']"
 
-  '^the? global header$':      '#brandfirst-header'
-  '^the stats section$':       '.stats'
-  '^the My Brands section$':   '#my-brands'
-  '^the New Brands section$':  '#new-brands'
+  '^the? global header$':                        '#brandfirst-header'
+  '^the stats section$':                         '.stats'
+  '^the brands section$':                        '#brands'
+  '^the My Brands section$':                     '#my-brands'
+  '^the New Brands section$':                    '#new-brands'
+  '^the hide brands with no actions checkbox$':  '#hide-empty-brands'
 
   # Fall through
 
