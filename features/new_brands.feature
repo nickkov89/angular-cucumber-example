@@ -18,3 +18,12 @@ Feature: Member sees New Brands section
     And I should see "Half Foods" within the "half-foods" brand box
     And I should see the "foo-2.jpg" image within the "half-foods" brand box
     And I should see "20" within the "half-foods" brand box
+
+  Scenario: Member sees new brands counts
+    Given the brands API request returns the following:
+      | id    | name        | slug        | logo      | header_image_url | action_count | crowd_participant |
+      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15           | true              |
+      | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 10           | false             |
+    And I am on the portal page
+    Then I should see "1" within the brands count of the new brands section
+    And I should see "10" within the actions count of the new brands section

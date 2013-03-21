@@ -6,12 +6,16 @@ class BrandsController extends Spine.Controller
     id: 'brands'
 
   elements:
-    '#my-brands':                          'myBrands'
-    '#new-brands':                         'newBrands'
+    '#my-brands .brands-grid':             'myBrandsGrid'
+    '#new-brands .brands-grid':            'newBrandsGrid'
     '#my-brands a[data-action-count=0]':   'myBrandsEmpty'
     '#new-brands a[data-action-count=0]':  'newBrandsEmpty'
     '#hide-empty-brands':                  'hideBrandsCheckbox'
     '#no-actions-container':               'noActionsContainer'
+    '#my-brands .brands-count':            'myBrandsCount'
+    '#my-brands .actions-count':           'myBrandsActionsCount'
+    '#new-brands .brands-count':           'newBrandsCount'
+    '#new-brands .actions-count':          'newBrandsActionsCount'
 
   events:
     'click #hide-empty-brands':  'renderBrandsLists'
@@ -36,16 +40,18 @@ class BrandsController extends Spine.Controller
 
   renderBrandsList: (type) =>
     properName = "#{type}Brands"
-    section    = @[properName]
+    grid       = @["#{properName}Grid"]
     brands     = Brand[properName]()
 
-    section.html require('views/brands/brand_box')(brands)
+    grid.html require('views/brands/brand_box')(brands)
+    @["#{properName}Count"].text brands.length
+    @["#{properName}ActionsCount"].text Brand.totalActions(properName)
     @refreshElements()
 
     if @hideBrandsCheckbox.is(':checked')
       @["#{properName}Empty"].remove()
-      section.html require("views/brands/#{type}_brands_zero_actions") unless Brand.totalActions(properName)
+      grid.html require("views/brands/#{type}_brands_zero_actions") unless Brand.totalActions(properName)
 
-    section.html require("views/brands/#{type}_brands_zero_state") if !brands.length
+    grid.html require("views/brands/#{type}_brands_zero_state") if !brands.length
 
 module.exports = BrandsController
