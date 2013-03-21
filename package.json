@@ -4,7 +4,7 @@
   "dependencies" : {
     "es5-shimify":  "2.0.5",
     "gfx":          "0.0.4",
-    "hem":          "0.2.9",
+    "hem":          "0.1.9",
     "hem-less":     "0.0.4",
     "json2ify":     "0.0.3",
     "spine":        "1.0.8"
