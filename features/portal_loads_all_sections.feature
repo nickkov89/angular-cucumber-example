@@ -6,3 +6,4 @@ Feature: Member sees all sections of the Portal
     Then I should see the global header
     And I should see the stats section
     And I should see the brands section
+    And I should see the footer

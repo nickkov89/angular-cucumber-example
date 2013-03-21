@@ -37,6 +37,7 @@ module.exports =
   '^the my brands zero state$':                  '#my-brands-zero-actions'
   '^the new brands zero state$':                 '#new-brands-zero-actions'
   '^the brand menu$':                            '#brand-menu'
+  '^the footer$':                                'footer'
 
   # Fall through
 

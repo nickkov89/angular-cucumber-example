@@ -19,6 +19,7 @@ class Portal extends Spine.Controller
     @append new HeaderController()
     @append new StatsController()
     @append new BrandsController()
+    @append require('views/footer')
 
     Me.fetch()
     Brand.fetch()
