@@ -1,3 +1,9 @@
 <i class="icon-ok-sign status-icon"></i>
-<div>in good standing <i class="icon-question-sign"></i></div>
+<div>
+  in good standing
+  <i class="icon-question-sign status-help tipsyable" data-tooltip-id="status-help-text"></i>
+  <div id="status-help-text" style="display:none">
+    Here's some help
+  </div>
+</div>
 <div>keep up the good work!</div>

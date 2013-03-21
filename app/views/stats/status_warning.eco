@@ -1,3 +1,9 @@
 <i class="icon-warning-sign status-icon"></i>
-<div>you've been warned <i class="icon-question-sign"></i></div>
+<div>
+  you've been warned
+  <i class="icon-question-sign status-help tipsyable" data-tooltip-id="status-help-text"></i>
+  <div id="status-help-text" style="display:none">
+    Here's some help
+  </div>
+</div>
 <div>stop getting flagged!</div>

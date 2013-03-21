@@ -4,6 +4,7 @@ require 'spine/lib/ajax'
 require 'spine/lib/manager'
 require 'spine/lib/route'
 require 'lib/bootstrap-dropdown'
+require 'lib/jquery.tipsy'
 
 Spine = require 'spine'
 

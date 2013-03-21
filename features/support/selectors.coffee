@@ -41,6 +41,7 @@ module.exports =
   '^the new brands zero state$':                 '#new-brands-zero-actions'
   '^the brand menu$':                            '#brand-menu'
   '^the footer$':                                'footer'
+  '^the status help icon$':                      '.status-plate .status-help'
 
   # Fall through
 

@@ -1,4 +1,5 @@
 { Spine } = require 'lib/setup'
+Tipsyable = require 'lib/tipsyable'
 Me        = require 'models/me'
 
 class StatsController extends Spine.Controller
@@ -31,5 +32,7 @@ class StatsController extends Spine.Controller
         @statusPlate.html require('views/stats/status_warning')
       else
         @statusPlate.html require('views/stats/status_ok')
+
+      Tipsyable.tipsy gravity: 'n'
 
 module.exports = StatsController
