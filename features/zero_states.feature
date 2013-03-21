@@ -8,15 +8,15 @@ Feature: Member sees various zero states
       | 12345 | Dairy King | dairy-king | foo-1.jpg | bar-1.jpg        | 0            | false             |
       | 12346 | Tres Toros | tres-toros | foo-2.jpg | bar-2.jpg        | 0            | false             |
     And I am on the portal page
-    Then I should see the intro zero state within the My Brands section
+    Then I should see the my brands zero state within the My Brands section
 
-  Scenario: Member sees my brands zero state
+  Scenario: Member sees my brands zero actions state
     Given the brands API request returns the following:
       | id    | name       | slug       | logo      | header_image_url | action_count | crowd_participant |
       | 12345 | Dairy King | dairy-king | foo-1.jpg | bar-1.jpg        | 0            | true              |
       | 12346 | Tres Toros | tres-toros | foo-2.jpg | bar-2.jpg        | 1            | false             |
     And I am on the portal page
-    Then I should see the my brands zero state within the My Brands section
+    Then I should see the my brands zero actions state within the My Brands section
     And I should not see the "dairy-king" brand box within the My Brands section
     But I should see the "tres-toros" brand box within the New Brands section
 
@@ -24,7 +24,7 @@ Feature: Member sees various zero states
     Given the brands API request returns the following:
       | id    | name       | slug       | logo      | header_image_url | action_count | crowd_participant |
       | 12345 | Dairy King | dairy-king | foo-1.jpg | bar-1.jpg        | 1            | true              |
-      | 12346 | Tres Toros | tres-toros | foo-2.jpg | bar-2.jpg        | 0            | false             |
+      | 12346 | Tres Toros | tres-toros | foo-2.jpg | bar-2.jpg        | 0            | true              |
     And I am on the portal page
     Then I should see the new brands zero state within the New Brands section
     And I should not see the "tres-toros" brand box within the My Brands section

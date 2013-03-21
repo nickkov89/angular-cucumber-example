@@ -48,7 +48,7 @@ class BrandsController extends Spine.Controller
     @["#{properName}ActionsCount"].text Brand.totalActions(properName)
     @refreshElements()
 
-    if @hideBrandsCheckbox.is(':checked')
+    if type == 'my' && @hideBrandsCheckbox.is(':checked')
       @["#{properName}Empty"].remove()
       grid.html require("views/brands/#{type}_brands_zero_actions") unless Brand.totalActions(properName)
 
