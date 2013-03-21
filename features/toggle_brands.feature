@@ -3,10 +3,10 @@ Feature: Member can hide brands with no actions
   I can hide and show brands based on available actions
 
   Background:
-    Given I am participating with the following brands:
-      | id    | name        | slug        | logo      | header_image_url | action_count |
-      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15           |
-      | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 0            |
+    Given the brands API request returns the following:
+      | id    | name        | slug        | logo      | header_image_url | action_count | crowd_participant |
+      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 1            | true              |
+      | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 0            | true              |
     And I am on the portal page
 
   Scenario: Member sees the hide brands with no actions checkbox
@@ -14,8 +14,8 @@ Feature: Member can hide brands with no actions
     And the hide brands with no actions checkbox should be checked
 
   Scenario: Member toggles brands with no available actions
-    Then the "steak-shack" brand box should be visible
-    But the "mcronalds" brand box should be hidden
+    Then I should see the "steak-shack" brand box
+    But I should not see the "mcronalds" brand box
     When I uncheck the hide brands with no actions checkbox
-    Then the "steak-shack" brand box should be visible
-    And the "mcronalds" brand box should be visible
+    Then I should see the "steak-shack" brand box
+    And I should see the "mcronalds" brand box

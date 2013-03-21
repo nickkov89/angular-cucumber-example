@@ -32,7 +32,12 @@ module.exports =
   '^the My Brands section$':                     '#my-brands'
   '^the New Brands section$':                    '#new-brands'
   '^the hide brands with no actions checkbox$':  '#hide-empty-brands'
+  '^the intro zero state$':                      '#my-brands-zero-state'
+  '^the no actions zero state$':                 '#no-actions-zero-state'
+  '^the my brands zero state$':                  '#my-brands-zero-actions'
+  '^the new brands zero state$':                 '#new-brands-zero-actions'
   '^the brand menu$':                            '#brand-menu'
+
   # Fall through
 
   '^(.+)$': (selector) ->

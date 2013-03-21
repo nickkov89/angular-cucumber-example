@@ -21,3 +21,22 @@ describe 'Brand', ->
       two   = Brand.create(id: 12346, crowd_participant: true)
       three = Brand.create(id: 12347, crowd_participant: false)
       expect(Brand.newBrands()).toEqual([three])
+
+  describe ".totalActions", ->
+    it "returns the total number of actions across all brands by default", ->
+      one   = Brand.create(id: 12345, crowd_participant: true, action_count: 1)
+      two   = Brand.create(id: 12346, crowd_participant: true, action_count: 2)
+      three = Brand.create(id: 12347, crowd_participant: false, action_count: 3)
+      expect(Brand.totalActions()).toEqual(6)
+
+    it "returns the total number of actions across a myBrands or newBrands", ->
+      one   = Brand.create(id: 12345, crowd_participant: true, action_count: 1)
+      two   = Brand.create(id: 12346, crowd_participant: true, action_count: 2)
+      three = Brand.create(id: 12347, crowd_participant: false, action_count: 4)
+      Brand.myBrands = -> [one, two]
+      Brand.newBrands = -> [three]
+      expect(Brand.totalActions('myBrands')).toEqual(3)
+      expect(Brand.totalActions('newBrands')).toEqual(4)
+
+    it "returns zero if there are no brands", ->
+      expect(Brand.totalActions()).toEqual(0)

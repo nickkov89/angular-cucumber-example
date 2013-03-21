@@ -25,12 +25,12 @@ AppServer.get '/api/v2/me', (env, callback) ->
 brands = []
 _(10).times (i) ->
   brand =
-    id:           "#{1230 + i}"
-    slug:         "brand-#{i}"
-    name:         "Brand-#{1230 +i}"
-    logo:         "http://dummyimage.com/50x50/ccc/555.png&text=logo"
-    action_count: 3*i
-    crowd_participant: "#{i%2 > 0}"
+    id:                 "#{1230 + i}"
+    slug:               "brand-#{i}"
+    name:               "Brand-#{1230 +i}"
+    logo:               "http://dummyimage.com/50x50/ccc/555.png&text=logo"
+    action_count:       i*3
+    crowd_participant:  !(i%2)
   brands.push new Factory('Brand', brand)
 
 AppServer.get '/api/v2/brands', (env, callback) ->

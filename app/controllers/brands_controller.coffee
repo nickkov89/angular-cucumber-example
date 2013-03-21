@@ -6,13 +6,15 @@ class BrandsController extends Spine.Controller
     id: 'brands'
 
   elements:
-    '.brand-box[data-action-count=0]':  'emptyBrands'
-    '#hide-empty-brands':               'hideBrandsCheckbox'
-    '#my-brands':                       'myBrands'
-    '#new-brands':                      'newBrands'
+    '#my-brands':                          'myBrands'
+    '#new-brands':                         'newBrands'
+    '#my-brands a[data-action-count=0]':   'myBrandsEmpty'
+    '#new-brands a[data-action-count=0]':  'newBrandsEmpty'
+    '#hide-empty-brands':                  'hideBrandsCheckbox'
+    '#no-actions-container':               'noActionsContainer'
 
   events:
-    'click #hide-empty-brands':  'toggleEmptyBrands'
+    'click #hide-empty-brands':  'renderBrandsLists'
 
   constructor: ->
     super
@@ -20,12 +22,30 @@ class BrandsController extends Spine.Controller
     Brand.bind 'refresh', @update
 
   update: =>
-    @myBrands.html  require('views/brands/brand_box')(Brand.myBrands())
-    @newBrands.html require('views/brands/brand_box')(Brand.newBrands())
-    @refreshElements()
-    @toggleEmptyBrands()
+    if Brand.totalActions() == 0
+      @noActionsContainer.html require('views/brands/actions_zero_state')
+      @hideBrandsCheckbox.attr
+        checked:  false
+        disabled: true
 
-  toggleEmptyBrands: =>
-    @emptyBrands.toggle !@hideBrandsCheckbox.is(':checked')
+    @renderBrandsLists()
+
+  renderBrandsLists: =>
+    @renderBrandsList('my')
+    @renderBrandsList('new')
+
+  renderBrandsList: (type) =>
+    properName = "#{type}Brands"
+    section    = @[properName]
+    brands     = Brand[properName]()
+
+    section.html require('views/brands/brand_box')(brands)
+    @refreshElements()
+
+    if @hideBrandsCheckbox.is(':checked')
+      @["#{properName}Empty"].remove()
+      section.html require("views/brands/#{type}_brands_zero_actions") unless Brand.totalActions(properName)
+
+    section.html require("views/brands/#{type}_brands_zero_state") if !brands.length
 
 module.exports = BrandsController

@@ -13,4 +13,9 @@ class Brand extends Spine.Model
   @newBrands: ->
     @select (brand) -> !brand.crowd_participant
 
+  @totalActions: (set) ->
+    brands = if set? then @[set]() else @all()
+    action_counts = brands.map (brand) -> parseInt brand.action_count
+    if action_counts.length then action_counts.reduce (acc, count) -> acc + count else 0
+
 module.exports = Brand
