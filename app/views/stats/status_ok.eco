@@ -4,5 +4,5 @@
   <i class="icon-question-sign status-help tipsyable" data-tooltip-id="status-help-text"></i>
 </p>
 <div id="status-help-text" style="display:none">
-  Here's some help
+  You have no flags.
 </div>

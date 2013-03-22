@@ -27,19 +27,18 @@ Feature: Member sees stats plate
     And I am on the portal page
     Then I should see "In good standing" within the status plate
     And I should see the "ok-circle" icon within the status plate
+    And I should see the status help icon
+    When I hover over the status help icon
+    Then I should see a tipsy tooltip containing "You have no flags."
 
   Scenario: Member sees warning current status with Crowdtap
     Given I have been flagged 1 time
     And I am on the portal page
-    Then I should see "you've been warned" within the status plate
+    Then I should see "In good standing" within the status plate
     And I should see the "warning-sign" icon within the status plate
-
-  Scenario: Member sees tipsy tooltip help for Crowdtap status
-    Given I have been flagged 0 times
-    And I am on the portal page
-    Then I should see the status help icon
+    And I should see the status help icon
     When I hover over the status help icon
-    Then I should see a tipsy tooltip containing "Here's some help"
+    Then I should see a tipsy tooltip containing "You've been flagged 1 time."
 
   Scenario: Member sees stars count
     Given I have earned 100 stars
