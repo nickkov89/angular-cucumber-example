@@ -1,10 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="span4 offset4">
-      <label for="hide-empty-brands">
-        <input type="checkbox" id="hide-empty-brands" checked="checked">
-        Hide brands that don't have actions
-      </label>
     </div>
   </div>
 
@@ -12,20 +8,32 @@
 
   <div class="row">
     <div id="my-brands" class="span12">
-      <h2>
-        My Brands
-        <small><span class="brands-count">0</span> Brands | <span class="actions-count">0</span> Actions</small>
-      </h2>
+      <div class="row">
+        <div class="span8">
+          <h3>
+            My Brands
+            <small><span class="brands-count">0</span> Brands | <span class="actions-count">0</span> Actions</small>
+          </h3>
+        </div>
+        <div class="span4">
+          <label for="hide-empty-brands">
+            <input type="checkbox" id="hide-empty-brands" checked="checked">
+            Hide brands without new actions
+          </label>
+        </div>
+      </div>
+      <hr>
       <div class="row brands-grid"></div>
     </div>
   </div>
 
   <div class="row">
     <div id="new-brands" class="span12">
-      <h2>
+      <h3>
         New Brands
         <small><span class="brands-count">0</span> Brands | <span class="actions-count">0</span> Actions</small>
-      </h2>
+      </h3>
+      <hr>
       <div class="row brands-grid"></div>
     </div>
   </div>

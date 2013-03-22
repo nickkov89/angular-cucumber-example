@@ -22,3 +22,10 @@
 // --------------------
 @disruptModalWidth: 365px;
 @disruptModalPadding: 40px;
+
+// Brands grid
+@brandBoxesPerRow:     3;
+@brandBoxWidth:        300px;
+@brandBoxColumns:      @gridColumns / @brandBoxesPerRow;
+@brandBoxColumnWidth:  @brandBoxColumns * @gridColumnWidth + (@brandBoxColumns - 1) * @gridGutterWidth;
+@brandBoxExtraMargin:  @brandBoxColumnWidth - @brandBoxWidth + (@brandBoxColumnWidth - @brandBoxWidth) / (@brandBoxesPerRow - 1);

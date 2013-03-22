@@ -10,7 +10,7 @@ Factory.define 'Me',
   charity:            'American National Red Cross'
   charity_id:         3
   flags_count:        0
-  profile_photo_url:  'http://dummyimage.com/50x50/000/fff.jpg&text=me'
+  profile_photo_url:  'http://dummyimage.com/75x75/000/fff.jpg&text=me'
   stars_count:        200
   residence_city:     'Brooklyn'
   residence_state:    'NY'
@@ -22,7 +22,7 @@ Factory.define 'Brand',
   name:               'Bexpedia'
   slug:               'bexpedia'
   description:        'The dreams of yesterday are the hopes of today and the reality of tomorrow.'
-  header_image_url:   'http://static.movember.com/uploads/images/2012/Homepage%20tiles/thanks.jpg'
+  header_image_url:   'http://dummyimage.com/300x128/000/fff.jpg&text=header'
   logo:               'http://dummyimage.com/33x33/333/fff.jpg&text=logo'
   action_count:       12
   crowd_participant:  true

@@ -1,7 +1,86 @@
+#my-brands, #new-brands {
+  h3 {
+    color: @darkestText;
+    margin: 0;
+    text-shadow: 0px 1px 1px #eee;
+
+    small {
+      font: 0.75em @sansFontFamily;
+      color: darken(@bgPrimary, 35%);
+    }
+  }
+}
+
+label[for="hide-empty-brands"] {
+  font-weight: bold;
+  color: darken(@bgPrimary, 35%);
+  margin-top: 10px;
+  text-align: right;
+
+  input[type="checkbox"] {
+    margin-right: 5px;
+    vertical-align: text-top;
+  }
+}
+
+.brands-grid {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
 .brand-box {
+  .border-radius(4px);
+  .box-shadow(0px 1px 3px @gray);
+  display: block;
+  margin-bottom: 40px;
+  margin-left: @gridGutterWidth + @brandBoxExtraMargin;
+  overflow: hidden;
+  width: 300px;
+
+  &:nth-child(3n+1) {
+    margin-left: @gridGutterWidth;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.brand-header {
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: block;
-  height: 140px;
-  margin-bottom: 20px;
+  height: 128px;
+  width: 300px;
+}
+
+.brand-meta {
+  .clearfix();
+  background-color: #fff;
+
+  .brand-logo {
+    border: 1px solid #fff;
+    float: left;
+    height: 50px;
+    margin: -10px 10px 10px;
+    width: 50px;
+  }
+
+  .brand-name {
+    font-family: @sansFontFamily;
+    line-height: 1;
+    margin-top: 5px;
+  }
+
+  .brand-name, .action-count {
+    color: @grayDark;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .badge {
+    .border-radius(3px);
+    color: #fff;
+    font-weight: normal;
+  }
 }

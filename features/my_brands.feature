@@ -9,12 +9,12 @@ Feature: Member sees My Brands section
       | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 20           |
     And I am on the portal page
     Then I should see the "steak-shack" brand box within the My Brands section
-    And the "steak-shack" brand box should have a background image of "bar-1.jpg"
+    And the "steak-shack" brand box header should have a background image of "bar-1.jpg"
     And I should see "Steak Shack" within the "steak-shack" brand box
     And I should see the "foo-1.jpg" image within the "steak-shack" brand box
     And I should see "15" within the "steak-shack" brand box
     And I should see the "mcronalds" brand box within the My Brands section
-    And the "mcronalds" brand box should have a background image of "bar-2.jpg"
+    And the "mcronalds" brand box header should have a background image of "bar-2.jpg"
     And I should see "McRonalds" within the "mcronalds" brand box
     And I should see the "foo-2.jpg" image within the "mcronalds" brand box
     And I should see "20" within the "mcronalds" brand box

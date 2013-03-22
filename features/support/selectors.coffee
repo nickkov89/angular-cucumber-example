@@ -26,6 +26,9 @@ module.exports =
   '^the "([^"]*)" brand box$': (slug) ->
     return "a##{slug}.brand-box[href='/#{slug}']"
 
+  '^the "([^"]*)" brand box header$': (slug) ->
+    return "##{slug}.brand-box .brand-header"
+
   '^the (brands|actions) count of the (my|new) brands section$': (countType, section) ->
     return "##{section}-brands .#{countType}-count"
 
