@@ -25,8 +25,8 @@ Feature: Member sees stats plate
   Scenario: Member sees good current status with Crowdtap
     Given I have been flagged 0 times
     And I am on the portal page
-    Then I should see "in good standing" within the status plate
-    And I should see the "ok-sign" icon within the status plate
+    Then I should see "In good standing" within the status plate
+    And I should see the "ok-circle" icon within the status plate
 
   Scenario: Member sees warning current status with Crowdtap
     Given I have been flagged 1 time

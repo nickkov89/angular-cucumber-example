@@ -10,7 +10,7 @@ class StatsController extends Spine.Controller
     '.charity':         'charity'
     '.finishes-count':  'finishesCount'
     '.location':        'location'
-    '.mug':             'mug'
+    '.mug img':         'mug'
     '.name':            'name'
     '.stars-count':     'starsCount'
     '.status-plate':    'statusPlate'
