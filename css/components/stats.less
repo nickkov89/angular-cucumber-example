@@ -28,11 +28,12 @@
     font: 58px @altFontFamily;
     line-height: 1.2;
     text-align: center;
-    text-shadow: 0px 1px 0px #fff, 0px -1px 0px @gray;
+    text-shadow: 0px 1px 0px fade(#fff, 50%),
+                 0px -1px 0px fade(#000, 50%);
   }
 
   .count-label {
-    color: darken(@bgPrimary, 25%);
+    color: @gray;
     font: 18px @serifFontFamily;
     text-align: center;
   }
@@ -79,7 +80,8 @@
   .status-icon {
     color: @blue;
     font-size: 40px;
-    text-shadow: 0px 1px 0px #fff, 0px -1px 0px @gray;
+    text-shadow: 0px 1px 0px fade(#fff, 50%),
+                 0px -1px 0px fade(#000, 50%);
 
     &.icon-warning-sign {
       color: #d7be59;
@@ -94,6 +96,7 @@
     margin-top: 5px;
 
     i {
+      color: @grayLight;
       font-size: 14px;
     }
   }
