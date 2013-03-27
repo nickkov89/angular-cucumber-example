@@ -1,8 +1,10 @@
-<a href="/<%= @slug %>" id="<%= @slug %>" class="brand-box span4" data-action-count="<%= @action_count %>">
+<a href="/<%= @slug %>" id="<%= @slug %>" class="brand-box span4 animated <%= 'bounceIn' unless @action_count || !@crowd_participant %>" data-action-count="<%= @action_count %>">
   <div class="brand-header" style="background-image: url(<%= @header_image_url %>)"></div>
   <div class="brand-meta">
     <img src="<%= @logo %>" class="brand-logo">
     <h4 class="brand-name"><%= @name %></h4>
-    <div class="action-count badge badge-important"><%= @action_count %> new action<%= 's' if @action_count > 1 %></div>
+    <div class="action-count badge badge-important">
+      <%= @action_count %> new action<%= 's' unless @action_count == 1 %>
+    </div>
   </div>
 </a>

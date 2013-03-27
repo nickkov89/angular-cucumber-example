@@ -32,24 +32,30 @@ class BrandsController extends Spine.Controller
         checked:  false
         disabled: true
 
-    @renderBrandsLists()
+    @renderBrandsLists(false)
 
-  renderBrandsLists: =>
-    @renderBrandsList('my')
-    @renderBrandsList('new')
+  renderBrandsLists: (animate) =>
+    @renderBrandsList('my', animate)
+    @renderBrandsList('new', animate)
 
-  renderBrandsList: (type) =>
+  renderBrandsList: (type, animate) =>
     properName = "#{type}Brands"
     grid       = @["#{properName}Grid"]
     brands     = Brand[properName]()
 
     grid.html require('views/brands/brand_box')(brands)
+
     @["#{properName}Count"].text brands.length
     @["#{properName}ActionsCount"].text Brand.totalActions(properName)
     @refreshElements()
 
     if type == 'my' && @hideBrandsCheckbox.is(':checked')
-      @["#{properName}Empty"].remove()
+      remove = => @myBrandsEmpty.remove()
+      if animate
+        @myBrandsEmpty.addClass('bounceOut')
+        setTimeout remove, 180
+      else
+        remove()
       grid.html require("views/brands/#{type}_brands_zero_actions") unless Brand.totalActions(properName)
 
     grid.html require("views/brands/#{type}_brands_zero_state") if !brands.length
