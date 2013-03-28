@@ -1,3 +1,7 @@
+require '../../app/lib/core_ext'
+require '../../app/lib/sugar'
+require '../../app/lib/date-utils'
+
 Browser     = require 'zombie'
 { Factory } = require 'forgery'
 Hem         = require 'hem'
@@ -5,6 +9,8 @@ nock        = require 'nock'
 selectors   = require './selectors'
 should      = require 'should'
 selectors   = require './selectors'
+recorder    = require './recorder'
+_           = require 'underscore'
 
 # Require the factories
 require '../../spec/factories'
@@ -22,9 +28,11 @@ Browser.debug = true if process.env.DEBUG == 'true'
 
 class World
   constructor: (callback) ->
-    @browser   = new Browser()
-    @nock      = nock(Browser.site, { allowUnmocked: true })
-                 #.log(console.log)
+    @browser  = new Browser()
+    @recorder = recorder
+    @_        = _
+    @nock     = nock(Browser.site, { allowUnmocked: true })
+                #.log(console.log)
 
     nock('http://copycopter.example.com')
       .persist()

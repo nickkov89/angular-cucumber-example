@@ -1,0 +1,54 @@
+<div class='modal-body'>
+  <p><%- I18n.t('welcome_modal.confirmation.title', { defaultValue: 'Almost there! We just need you to confirm some of your information!' }) %></p>
+  <form class='clearfix'>
+    <div class="left-col">
+      <div class='control-group first_name last_name required <%= 'error' if @errors?.name? %>'>
+        <label class='first_name last_name required control-label' for='first_name'>Name</label>
+        <div class='controls'>
+          <input class='input-small string first_name required' type='text' id='first_name' name='first_name' value='<%= @first_name %>'>
+          <input class='input-small string last_name required' type='text' id='last_name'  name='last_name'  value='<%= @last_name %>'>
+          <span class='name help-block'><%= @errors?.name %></span>
+        </div>
+      </div>
+      <div class='control-group email required <%= 'error' if @errors?.email? %>'>
+        <label class='email required control-label' for='email'>Email</label>
+        <div class='controls'>
+          <input class='input-large string email required' type='text' id='email' name='email' value='<%= @email %>'>
+          <span class='email help-block'><%= @errors?.email %></span>
+        </div>
+      </div>
+      <div class='control-group date_of_birth required <%= 'error' if @errors?.date_of_birth? %>'>
+        <label class='control-label date_of_birth required' for='date_of_birth'>Birth date</label>
+        <div class='controls'>
+          <input class='input-medium string date_of_birth required datepicker'
+                 type='text'
+                 id='date_of_birth'
+                 name='date_of_birth' value='<%= @date_of_birth %>'>
+          <span class='date_of_birth help-block'><%= @errors?.date_of_birth %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class='control-group gender required'>
+        <label class='control-label gender required <%= 'error' if @errors?.gender? %>' for='gender'>Gender</label>
+        <div class='controls'>
+          <select class='input-medium select gender required' id='gender' name='gender'>
+            <option <%= "selected='selected'" if @gender == 'Male' %>   value='Male'  > Male   </option>
+            <option <%= "selected='selected'" if @gender == 'Female' %> value='Female'> Female </option>
+          </select>
+          <span class='gender help-block'><%= @errors?.gender %></span>
+        </div>
+      </div>
+      <div class='control-group residence_zip_code required <%= 'error' if @errors?.residence_zip_code? %>'>
+        <label class='residence_zip_code required control-label' for='residence_zip_code'>Zip</label>
+        <div class='controls'>
+          <input class='input-small string residence_zip_code required' type='text' id='residence_zip_code' name='residence_zip_code' value='<%= @residence_zip_code %>'>
+          <span class='residence_zip_code help-block'> <%= @errors?.residence_zip_code %></span>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <a href='#' class='btn btn-primary call-to-action info-confirm'>Confirm</a>
+</div>

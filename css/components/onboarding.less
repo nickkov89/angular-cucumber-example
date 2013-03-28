@@ -1,0 +1,123 @@
+.carousel-pane {
+  button.close {
+    position: absolute;
+    right: -25px;
+    top: -30px;
+  }
+
+  .carousel-indicators {
+    bottom: -30px;
+    left: 250px;
+    position: absolute;
+    right: auto;
+    top: auto;
+
+    > li {
+      box-shadow: inset 0px 1px 1px #333,
+                  0px 1px 0px #ddd;
+      background: darken(@bgPrimary, 20%);
+      border: 1px solid darken(@bgPrimary, 25%);
+
+      &.active {
+        .box-shadow(none);
+        #gradient > .vertical(lighten(@blue, 10%), @blue);
+      }
+    }
+  }
+}
+
+#welcome-modal {
+  margin-top: -300px;
+
+  .controller {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+  label.residence_zip_code {
+    margin-top: 15px;
+  }
+}
+
+#settings-modal {
+  margin-top: -350px;
+}
+
+.settings-modal.modal .modal-body, .welcome-modal.modal .modal-body {
+  color: lighten(@nameplateColor, 2%);
+  font-size: 20px;
+
+  h2 {
+    color: @darkestText;
+    font-size: 34px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.75);
+  }
+
+  p {
+    color: @bodyText;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.33);
+  }
+
+  .error {
+    font-size: 14px;
+  }
+
+  .graphic {
+    margin-bottom: 20px;
+    width: 560px;
+  }
+
+  .call-to-action {
+    width: 525px;
+    position: relative;
+    top: -1px;
+  }
+
+  label.checkbox {
+    color: @bodyText;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .left-col, .right-col {
+    width: 250px;
+
+    label {
+      font-weight: bold;
+      font-size: 16px;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+    }
+
+    input  {
+      -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.15), 0 1px 0 rgba(255,255,255,0.25);
+      -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.15), 0 1px 0 rgba(255,255,255,0.25);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.15), 0 1px 0 rgba(255,255,255,0.25);
+      border: 1px solid #c1b59e;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 7px 10px;
+      width: 228px;
+    }
+
+    select { width: 100%;  }
+  }
+
+  .left-col {
+    float: left;
+
+    input.first_name, input.last_name {
+      width: 100px;
+    }
+  }
+
+  .right-col {
+    float: right;
+  }
+}

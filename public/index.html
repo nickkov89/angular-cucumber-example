@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title>App</title>
     <script src="/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="https://raw.github.com/eternicode/bootstrap-datepicker/master/js/bootstrap-datepicker.js"></script>
     <script src="/application.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8" media="screen">
 
@@ -16,7 +18,9 @@
           el:            $('#portal'),
           env:           'development',
           current_user:  { id: '1230' },
-          assets_version: null
+          assets_version: null,
+          show_welcome_modal: true,
+          social_media_post_character_limit: 100
         };
 
         exports.portal_app = new Portal(options);

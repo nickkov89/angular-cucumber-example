@@ -10,8 +10,16 @@ module.exports =
   '^the "([^"]*)" icon$': (name) ->
     return "i.icon-#{name}"
 
-  # Portal-specific
+  '^"([^"]*)" linking to "([^"]*)"$': (text, url) ->
+    return "a[href*='#{url}']:contains('#{text}')"
 
+  '^"([^"]*)"$': (text) ->
+    return "a:contains(#{text})"
+
+  '^the brand menu item for brand "(.+)"$': (brand_id) ->
+    return "#brand-menu li.#{brand_id}"
+
+  # Portal-specific
   '^the (.+) plate$': (which) ->
     return ".#{which}-plate"
 
@@ -35,6 +43,39 @@ module.exports =
   '^the new brands zero state$':                 '#new-brands-zero-state'
   '^the footer$':                                'footer'
   '^the status help icon$':                      '.status-plate .status-help'
+
+  #On Ramping Api
+  'the me endpoint':                             '/api/v2/me'
+  #On Ramp Modals
+  '^actions?$':                             '.action'
+  '^the welcome modal$':                    '#welcome-modal'
+  '^the select your charity dropdown$':     'select.charity_id'
+  '^the welcome modal header image$':       'img[src*="png"]'
+  '^the share my email checkbox$':          '#email-share'
+  '^the crowdtap can notify me checkbox$':  '#crowdtap-notify'
+
+  '^the (.+) input with the value "([^"]+)"$': (field, value) ->
+    "input[id*='#{field.toUnderscore()}'][value='#{value}']"
+
+  '^the (.+) input with the selected value "([^"]+)"$': (field, value) ->
+    "select[id*='#{field.toUnderscore()}'] option[value='#{value}'][selected]"
+
+
+
+  '^the (.+) pane$': (type) ->
+    ".#{type}-pane"
+
+  '^the (.+) item$': (slide) ->
+    "##{slide}"
+
+  '^the (.+) input$': (id) ->
+    "input[id*='#{id.toUnderscore()}']"
+
+  '^the (active|completed) (carousel|list) actions?$': (type, section) ->
+    return "##{type}-actions-#{section}"
+
+  '^the (.+) control group error$': (type) ->
+    ".control-group.#{type.toUnderscore()}.error .help-block"
 
   # Fall through
 

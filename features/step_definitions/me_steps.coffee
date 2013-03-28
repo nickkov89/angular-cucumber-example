@@ -1,5 +1,9 @@
 module.exports = ->
 
+  @Given /^I have the following attributes:$/, (jsonString, next) ->
+    @me or= @Factory('Me', JSON.parse(jsonString))
+    next()
+
   @Given /^my name is "([^"]+)"$/, (name, next) ->
     @me or= @Factory('Me')
     @me.first_name = name.split(' ')[0]

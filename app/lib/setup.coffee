@@ -8,9 +8,9 @@ Spine = require 'spine'
 
 Spine.environments =
   development:
-    copycopterUrl:     'http://localhost:3004/translations'
+    copycopterUrl:     'http://localhost:4004/translations'
     real_browser:       true
-    assetPrefixUrl:    'http://localhost:9294'
+    assetPrefixUrl:    'http://localhost:9295'
   test:
     copycopterUrl:      'http://copycopter.example.com/translations'
     real_browser:       false
@@ -22,7 +22,7 @@ Spine.environments =
   staging:
     copycopterUrl:      'http://copycopter.crowdtap.com/api/v2/projects/671ada692a700a3b8adceb463c278cfd/published_blurbs?format=hierarchy'
     real_browser:       true
-    assetPrefixUrl:     'http://localhost:9294'
+    assetPrefixUrl:     'http://localhost:9295'
 
 window?.I18n   = require('lib/i18n')
 window?.Helper = window?.H = require('lib/helpers')

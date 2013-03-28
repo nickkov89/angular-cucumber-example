@@ -1,0 +1,10 @@
+<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>
+  <img src='<%= H.assets_path('images/onboarding_close_btn.png') %>'>
+</button>
+<div class="carousel-inner">
+</div>
+<ol class="carousel-indicators">
+  <li data-target="#welcome-carousel" data-slide-to="0" class='active'></li>
+  <li data-target="#welcome-carousel" data-slide-to="1"></li>
+  <li data-target="#welcome-carousel" data-slide-to="2"></li>
+</ol>

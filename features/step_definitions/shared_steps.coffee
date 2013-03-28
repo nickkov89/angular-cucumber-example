@@ -305,3 +305,15 @@ sharedSteps = module.exports = ->
     @$(selector).css('background-image').should.eql "url(#{value})"
 
     next()
+
+  @Then /^(.*) should (not )?be active$/, (namedElement, negator, next) ->
+    selector = @selectorFor(namedElement)
+    element  = @browser.query(selector)
+    should.exist element, "couldn't find '#{selector}' within #{@browser.html()}"
+
+    if negator
+      @$(selector).attr('class').should.not.include "active"
+    else
+      @$(selector).attr('class').should.include "active"
+
+    next()

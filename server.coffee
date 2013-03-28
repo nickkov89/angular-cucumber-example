@@ -21,6 +21,13 @@ AppServer.get '/api/v2/me', (env, callback) ->
   body = JSON.stringify(new Factory('Me'))
   AppServer.Response(body).send(callback)
 
+# PUT /api/v2/me
+AppServer.put '/api/v2/me', (env, callback) ->
+  request = new AppServer.Request(env)
+  request.params (error, params) ->
+    body = JSON.stringify(new Factory('Me', params))
+    AppServer.Response(body).send(callback)
+
 # GET /api/v2/brands
 brands = []
 _(10).times (i) ->
@@ -36,6 +43,28 @@ _(10).times (i) ->
 AppServer.get '/api/v2/brands', (env, callback) ->
   body = JSON.stringify(brands)
   AppServer.Response(body).send(callback)
+
+# GET /api/v2/brands/:id
+AppServer.get '/api/v2/brands/:id', (env, callback) ->
+  brand = new Factory('Brand')
+  brand.id                 = env.route.id
+  brand.name               = "#{brand.name}-#{brand.id}"
+  brand.me.points          = 2500
+  brand.me.entries         = 25
+  brand.me.lifetime_points = 500000
+  brand.me.rank            = 10
+
+  body = JSON.stringify( brand )
+  AppServer.Response(body).send(callback)
+
+# Get /api/v2/charities
+charities = []
+_(4).times (i) ->
+  charities.push new Factory('Charity', id: (i+1) * 4)
+charities.push new Factory('Charity', id: 3, default: true)
+
+AppServer.get '/api/v2/charities', (env, callback) ->
+  AppServer.Response(JSON.stringify(charities)).send(callback)
 
 # GET application.css
 AppServer.get '/application.css', Portal.cssPackage().createServer()

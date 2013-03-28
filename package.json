@@ -20,7 +20,7 @@
     "nock":           "0.16.0",
     "should":         "1.2.2",
     "strata":         "0.20.0",
-    "zombie":         "1.4.1"
+    "zombie":         "0.13.4"
   },
   "scripts" : {
     "spec":      "./node_modules/.bin/jasmine-node --noColor --coffee spec",
