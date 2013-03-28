@@ -1,12 +1,14 @@
 {
   "dependencies": [
-    "es5-shimify", 
-    "json2ify", 
+    "es5-shimify",
+    "json2ify",
     "spine",
     "spine/lib/local",
     "spine/lib/ajax",
     "spine/lib/route",
     "spine/lib/manager"
   ],
-  "libs": []
+  "libs": [
+    "app/lib/jquery.tipsy.js"
+  ]
 }

@@ -2,6 +2,7 @@ Browser     = require 'zombie'
 { Factory } = require 'forgery'
 Hem         = require 'hem'
 nock        = require 'nock'
+selectors   = require './selectors'
 should      = require 'should'
 selectors   = require './selectors'
 

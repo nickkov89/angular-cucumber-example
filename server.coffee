@@ -43,7 +43,7 @@ AppServer.get '/application.css', Portal.cssPackage().createServer()
 AppServer.get '/application.js', Portal.hemPackage().createServer()
 
 AppServer.use(AppServer.file, root, 'index.html')
-AppServer.run({ port: 9294 })
+AppServer.run({ port: 9295 })
 
 CopycopterServer = require 'strata'
 #CopycopterServer.use(CopycopterServer.commonLogger)
@@ -53,4 +53,4 @@ CopycopterServer.get '/translations', (env, callback) ->
   req = new CopycopterServer.Request(env)
   req.params (err, params) ->
     CopycopterServer.Response("#{params.callback}({ 'en': { } })").send(callback)
-CopycopterServer.run({ port: 3004 })
+CopycopterServer.run({ port: 4004 })

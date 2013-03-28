@@ -1,6 +1,4 @@
 module.exports =
-  # Elements
-
   # Shared
 
   '^(.*) within (.*)$': (inner, outer) ->
@@ -11,12 +9,6 @@ module.exports =
 
   '^the "([^"]*)" icon$': (name) ->
     return "i.icon-#{name}"
-
-  '^"([^"]*)" linking to "([^"]*)"$': (text, url) ->
-    return "a[href*='#{url}']:contains('#{text}')"
-
-  '^the brand menu item for brand "(.+)"$': (brand_id) ->
-    return "#brand-menu li.#{brand_id}"
 
   # Portal-specific
 
@@ -32,7 +24,6 @@ module.exports =
   '^the (brands|actions) count of the (my|new) brands section$': (countType, section) ->
     return "##{section}-brands .#{countType}-count"
 
-  '^the? global header$':                        '#brandfirst-header'
   '^the stats section$':                         '.stats'
   '^the brands section$':                        '#brands'
   '^the My Brands section$':                     '#my-brands'
@@ -42,7 +33,6 @@ module.exports =
   '^the my brands zero state$':                  '#my-brands-zero-state'
   '^the my brands zero actions state$':          '#my-brands-zero-actions'
   '^the new brands zero state$':                 '#new-brands-zero-state'
-  '^the brand menu$':                            '#brand-menu'
   '^the footer$':                                'footer'
   '^the status help icon$':                      '.status-plate .status-help'
 

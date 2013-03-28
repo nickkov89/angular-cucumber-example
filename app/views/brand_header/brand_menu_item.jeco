@@ -1,7 +1,0 @@
-<li class="<%= @id %>">
-  <a href="/<%= @slug %>">
-    <img src="<%= @logo %>" alt="<%= @name %>">
-    <p class="brand-name"><%= @name %></p>
-    <span class="action-count badge badge-important"><%= @action_count %> new actions</span>
-  </a>
-</li>
