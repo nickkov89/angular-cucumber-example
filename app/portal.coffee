@@ -20,7 +20,6 @@ class Portal extends Spine.Controller
     Translations.onLoaded =>
       @append new StatsController()
       @append new BrandsController()
-      @el.wrapInner('<div class="main-wrapper"/>')
       @append require('views/footer')
 
       if Spine.config.show_welcome_modal
