@@ -19,6 +19,9 @@ class StatsController extends Spine.Controller
     super
     @html require('views/stats')
 
+    Spine.bind 'member:updateNameplate', =>
+      Me.fetch()
+
     Me.bind 'refresh', (mes) =>
       me = mes[0]
       @mug.attr('src', me.profile_photo_url)

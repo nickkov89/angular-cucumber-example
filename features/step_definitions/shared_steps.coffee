@@ -317,3 +317,7 @@ sharedSteps = module.exports = ->
       @$(selector).attr('class').should.include "active"
 
     next()
+
+   @When /^the "([^"]*)" event is triggred$/, (eventName, next) ->
+     @browser.window.Spine.trigger(eventName)
+     @browser.wait next

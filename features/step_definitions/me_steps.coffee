@@ -53,3 +53,17 @@ module.exports = ->
     @me or= @Factory('Me')
     @me.flags_count = count
     next()
+
+  @Given /^I change my first name in my profile to "([^"]*)"$/, (name, next) ->
+    @me or= @Factory('Me')
+    @me.first_name= name
+
+    @nock.get("/api/v2/me").reply(200, @me)
+    next()
+
+  @Given /^I change my charity information to "([^"]*)"$/, (charity, next) ->
+    @me or= @Factory('Me')
+    @me.charity = charity
+
+    @nock.get("/api/v2/me").reply(200, @me)
+    next()

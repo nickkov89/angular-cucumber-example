@@ -54,3 +54,19 @@ Feature: Member sees stats plate
     Given I have 30 top 100 finishes
     And I am on the portal page
     Then I should see "30" within the finishes plate
+
+  Scenario: Nameplate updates when the 'member:UpdateNameplate' event is triggered
+    Given my name is "Banana Hammock"
+    When I am on the portal page
+    Then I should see "Banana H." within the me plate
+    When I change my first name in my profile to "Maulin"
+    And the "member:updateNameplate" event is triggred
+    Then I should see "Maulin" within the me plate
+
+  Scenario: Charity name updates in nameplate when member:updateNameplate event is triggered
+    Given I am supporting the "World Vision International" charity
+    And I am on the portal page
+    Then I should see "World Vision International" within the me plate
+    When I change my charity information to "Memberlandia Jet Ski Fund"
+    And the "member:updateNameplate" event is triggred
+    Then I should see "Memberlandia Jet Ski Fund" within the me plate
