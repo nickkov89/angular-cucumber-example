@@ -1,4 +1,3 @@
-@import "components/scaffolding";
 // Custom boostrap importer.
 @import "bootstrap/bootstrap";
 
@@ -9,12 +8,16 @@
 @import "base/modules";
 @import "base/variables";
 
-// Brand first components
+// Components
+@import "components/scaffolding";
+
+// Scoped components
 #portal {
   @import "components/brands";
   @import "components/footer";
   @import "components/stats";
   @import "components/onboarding";
 }
+
 // Vendored
 @import "vendor/tipsy";
