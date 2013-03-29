@@ -1,4 +1,4 @@
 <div id="no-actions-zero-state" class="zero-state">
-  <h3>Congrats! You've completed all available actions!</h3>
-  <p>To go places and do things that have never been done before – that’s what living is all about.</p>
+  <h3>Congrats! You've completed all available actions.</h3>
+  <p><%- I18n.t('brands.zero_actions', { defaultValue: "Check back for more actions later." }) %></p>
 </div>

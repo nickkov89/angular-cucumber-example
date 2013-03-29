@@ -1,4 +1,4 @@
 <div id="my-brands-zero-state" class="zero-state">
   <h3>Welcome to Crowdtap! Get started by participating in the brands below.</h3>
-  <p>To go places and do things that have never been done before – that’s what living is all about.</p>
+  <p><%- I18n.t('my_brands.zero_state', { defaultValue: "" }) %></p>
 </div>

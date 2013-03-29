@@ -1,4 +1,5 @@
 <div id="new-brands-zero-actions" class="zero-state">
   <h3>You've completed all available actions for new brands, good work!</h3>
-  <p>Check back for more brands later</p>
+  <p>Check back for more actions later</p>
+  <p><%- I18n.t('my_brands.zero_actions', { defaultValue: "Check back for more actions later" }) %></p>
 </div>
