@@ -1,5 +1,4 @@
 <div id="new-brands-zero-state" class="zero-state">
-  <h3>There are no new brands available at this time</h3>
-  <p>Check back for more brands later</p>
-  <p><%- I18n.t('my_brands.zero_state', { defaultValue: "Check back for more brands later" }) %></p>
+  <h3><%- I18n.t('my_brands.zero_state', { defaultValue: "You have no new brands available to you at this time." }) %></h3>
+  <p><%- I18n.t('my_brands.zero_state', { defaultValue: "You'll be notified via email when you have new brands to partner with." }) %></p>
 </div>
