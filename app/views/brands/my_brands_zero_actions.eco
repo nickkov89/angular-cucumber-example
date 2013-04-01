@@ -1,4 +1,4 @@
 <div id="my-brands-zero-actions" class="zero-state">
-  <h3><%- I18n.t('my_brands.zero_actions', { defaultValue: "You've completed all of your available actions for your brands, good going!" }) %></h3>
-  <p><%- I18n.t('my_brands.zero_actions', { defaultValue: "Check out your new brands below for more opportunities." }) %></p>
+  <h3><%- I18n.t('my_brands.zero_actions.heading', { defaultValue: "You've completed all of your available actions for your brands, good going!" }) %></h3>
+  <p><%- I18n.t('my_brands.zero_actions.subtext', { defaultValue: "Check out your new brands below for more opportunities." }) %></p>
 </div>
