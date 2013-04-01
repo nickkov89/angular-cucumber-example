@@ -16,11 +16,11 @@ Spine.environments =
     real_browser:       false
     assetPrefixUrl:     ''
   production:
-    copycopterUrl:      'http://copycopter.crowdtap.com/api/v2/projects/671ada692a700a3b8adceb463c278cfd/published_blurbs?format=hierarchy'
+    copycopterUrl:      'http://copycopter.crowdtap.com/api/v2/projects/0f393bf25199072b53d57bdde4480101/published_blurbs?format=hierarchy'
     real_browser:       true
     assetPrefixUrl:     'http://d18w78eemwzu3j.cloudfront.net/crowdtap.portal'
   staging:
-    copycopterUrl:      'http://copycopter.crowdtap.com/api/v2/projects/671ada692a700a3b8adceb463c278cfd/published_blurbs?format=hierarchy'
+    copycopterUrl:      'http://copycopter.crowdtap.com/api/v2/projects/0f393bf25199072b53d57bdde4480101/published_blurbs?format=hierarchy'
     real_browser:       true
     assetPrefixUrl:     'http://localhost:9295'
 
