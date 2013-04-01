@@ -167,7 +167,7 @@ sharedSteps = module.exports = ->
     @browser.location.hash.should.eql text, 'window hash'
     next()
 
-  @Then /^I should see "([^"]*)" within a "([^"]*)"$/, (text, within, next) ->
+  @Then /^I should see "([^"]*)" within (a )?"([^"]*)"$/, (text, within, next) ->
     text = text.replace(/\&quot;/g, '"')
     @$("#{within}:contains('#{text}')").length.should.be.above 0, "length of #{within} containing #{text}"
     next()

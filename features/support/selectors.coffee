@@ -53,6 +53,7 @@ module.exports =
   '^the welcome modal header image$':       'img[src*="png"]'
   '^the share my email checkbox$':          '#email-share'
   '^the crowdtap can notify me checkbox$':  '#crowdtap-notify'
+  '^the confirm tracking pixel$':           '.confirm-tracking-pixel'
 
   '^the (.+) input with the value "([^"]+)"$': (field, value) ->
     "input[id*='#{field.toUnderscore()}'][value='#{value}']"

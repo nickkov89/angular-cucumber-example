@@ -18,7 +18,10 @@ class ConfirmController extends Spine.Controller
     Me.one 'refresh', (mes) =>
       me = mes[0]
       @render(me)
-      me.bind 'ajaxSuccess',        => @navigate('welcome-carousel', shim: true)
+      me.bind 'ajaxSuccess', => 
+        @navigate('welcome-carousel', shim: true)
+        @append require('views/welcome_modal/tracking')
+
       me.bind 'ajaxError', (_, xhr) => @render( JSON.parse(xhr.responseText) )
 
   save: (e) =>

@@ -39,6 +39,7 @@ Feature: Member sees welcome modal
     And I have not seen the welcome modal
     When I am on the portal page
     Then I should see the welcome modal
+    And I should not see the confirm tracking pixel
     And the confirmation pane within the welcome modal should be active
     And I should see "Almost there! We just need you to confirm some of your information!" within the welcome modal
     And I should see the first name input with the value "Steve"
@@ -49,6 +50,7 @@ Feature: Member sees welcome modal
     And I enter "12345" in the residence zip code input within the welcome modal
     When I click "Confirm" within the welcome modal
     Then the confirmation pane within the welcome modal should not be active
+    And I should see the confirm tracking pixel
     But the carousel pane within the welcome modal should be active
     And the welcome item within the carousel pane should be active
     And I should see "Thanks for joining Crowdtap" within the welcome modal
