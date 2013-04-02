@@ -14,6 +14,9 @@ class Me extends Spine.Model
 
   @url: '/api/v2/me'
 
+  cityState: ->
+    if @residence_city then "#{@residence_city}, #{@residence_state}" else ""
+
   validate: ->
     @errors = {}
 

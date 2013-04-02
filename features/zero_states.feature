@@ -9,6 +9,7 @@ Feature: Member sees various zero states
       | 12346 | Tres Toros | tres-toros | foo-2.jpg | bar-2.jpg        | 0            | false             |
     And I am on the portal page
     Then I should see the my brands zero state within the My Brands section
+    Then I should not see the no actions zero state
 
   Scenario: Member sees my brands zero actions state
     Given the brands API request returns the following:

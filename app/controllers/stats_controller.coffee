@@ -19,14 +19,14 @@ class StatsController extends Spine.Controller
     super
     @html require('views/stats')
 
-    Spine.bind 'member:updateNameplate', =>
+    Spine.bind 'member:saved', =>
       Me.fetch()
 
     Me.bind 'refresh', (mes) =>
       me = mes[0]
       @mug.attr('src', me.profile_photo_url)
       @name.text("#{me.first_name} #{me.last_name[0]}.")
-      @location.text("#{me.residence_city}, #{me.residence_state}")
+      @location.text(me.cityState())
       @charity.text(me.charity)
       @starsCount.text(me.stars_count)
       @awardsCount.text(me.top_awards_count)

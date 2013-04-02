@@ -19,7 +19,7 @@ class WelcomeModalController extends Spine.Stack
   constructor: ->
     super
     Me.bind 'refresh', =>
-      @el.modal({keyboard: false})
+      @el.modal({keyboard: false, backdrop: "static"})
 
     Spine.bind 'modal:complete', =>
       @el.modal('hide')

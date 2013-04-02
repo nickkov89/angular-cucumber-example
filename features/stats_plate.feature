@@ -60,7 +60,7 @@ Feature: Member sees stats plate
     When I am on the portal page
     Then I should see "Banana H." within the me plate
     When I change my first name in my profile to "Maulin"
-    And the "member:updateNameplate" event is triggred
+    And the "member:saved" event is triggred
     Then I should see "Maulin" within the me plate
 
   Scenario: Charity name updates in nameplate when member:updateNameplate event is triggered
@@ -68,5 +68,5 @@ Feature: Member sees stats plate
     And I am on the portal page
     Then I should see "World Vision International" within the me plate
     When I change my charity information to "Memberlandia Jet Ski Fund"
-    And the "member:updateNameplate" event is triggred
+    And the "member:saved" event is triggred
     Then I should see "Memberlandia Jet Ski Fund" within the me plate

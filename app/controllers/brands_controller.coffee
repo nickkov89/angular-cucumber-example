@@ -25,8 +25,11 @@ class BrandsController extends Spine.Controller
     @html require('views/brands')
     Brand.bind 'refresh', @update
 
+    Spine.bind 'member:saved', ->
+      Brand.fetch()
+
   update: =>
-    if Brand.totalActions() == 0
+    if Brand.totalActions() == 0 && Brand.myBrands().length > 0
       @noActionsContainer.html require('views/brands/actions_zero_state')
       @hideBrandsCheckbox.attr
         checked:  false
