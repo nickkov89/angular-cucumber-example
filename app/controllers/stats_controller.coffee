@@ -31,10 +31,7 @@ class StatsController extends Spine.Controller
       @starsCount.text(me.stars_count)
       @awardsCount.text(me.top_awards_count)
       @finishesCount.text(me.top_finish_count)
-      if me.flags_count > 0
-        @statusPlate.html require('views/stats/status_warning')(flags: me.flags_count)
-      else
-        @statusPlate.html require('views/stats/status_ok')
+      @statusPlate.html require("views/stats/status_flag_#{me.flags_count}")
 
       Tipsyable.tipsy gravity: 'ne'
 

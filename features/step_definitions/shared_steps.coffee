@@ -205,12 +205,12 @@ sharedSteps = module.exports = ->
     next()
 
   @Then /^I should see a tipsy tooltip containing "([^"]*)"$/, (text,next) ->
-    tipsy_element = @$(".tipsy")
+    tipsy_element = @$(".tipsy:contains(#{text})")
     tipsy_element.length.should.eql 1, "tipsy element should be visible with text #{text}"
     next()
 
   @Then /^I should see (\d+) tipsy tooltips containing "([^"]*)"$/, (length,text,next) ->
-    tipsy_elements = @$(".tipsy")
+    tipsy_elements = @$(".tipsy:contains(#{text})")
     tipsy_elements.length.should.eql parseInt(length), "tipsy element(s) should be visible with text #{text}"
     next()
 
