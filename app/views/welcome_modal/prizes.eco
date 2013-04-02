@@ -6,11 +6,12 @@
       <%- I18n.t('welcome_modal.slide_4.intro', {defaultValue: "Be recognized by brands and gain increased access to exclusive opportunities, samples and prizes."}) %>
     </p>
     <div>
+      <p>
       <%- I18n.t('welcome_modal.slide_4.charity', {defaultValue: "Plus everything you do on Crowdtap helps donate money to your selected charity"}) %>
+      </p>
       <form>
         <div>
           <div class='control-group charity_id'>
-            <label class='control-label charity_id required' for='charity_id'>Charity</label>
             <div class='controls'>
               <select class='input-large select charity_id' id='charity_id' name='charity_id'>
               <option value='<%= @default_charity.id %>' selected> Select Your Charity </option>
