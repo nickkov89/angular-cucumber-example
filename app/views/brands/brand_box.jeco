@@ -3,8 +3,10 @@
   <div class="brand-meta">
     <img src="<%= @logo %>" class="brand-logo">
     <h4 class="brand-name"><%= @name %></h4>
+    <% if @action_count > 0: %>
     <div class="action-count badge badge-important">
       <%= @action_count %> new action<%= 's' unless @action_count == 1 %>
     </div>
+    <% end %>
   </div>
 </a>
