@@ -1,5 +1,4 @@
 { Spine } = require('lib/setup')
-Brand     = require 'models/brand'
 Charity   = require 'models/charity'
 Me        = require 'models/me'
 
@@ -8,52 +7,41 @@ class CarouselController extends Spine.Controller
   attributes: { id: 'welcome-carousel' }
 
   elements:
-    '.carousel-inner':          'items'
-    '.item#prizes':             'prizes'
-    '#email-share':             'brandCheckbox'
-    '#crowdtap-notify':         'crowdtapCheckbox'
     '#crowdtap-notify-warning': 'warning'
     '#prizes form':             'charityForm'
+    '.charity_id .controls':    'charityDropdown'
 
   events:
     'click .second-slide-confirm': 'moveNext'
-    'click .third-slide-confirm':  'saveAndSubmitMe'
+    'click .third-slide-confirm':  'moveNext'
     'click .prize-confirm':        'updateMyCharity'
     'click #crowdtap-notify':      'displayWarning'
 
   constructor: ->
     super
     @html require('views/welcome_modal/carousel')
+    @el.carousel({ 'interval': false }).carousel('next')
+    @el.mouseover()
 
-    Me.one 'refresh', =>
-      Charity.one 'refresh', =>
-        @items.append require('views/welcome_modal/welcome')
-        @items.append require('views/welcome_modal/action')
-
-        @items.append require('views/welcome_modal/prizes')(
+    Charity.one 'refresh', =>
+      @charityDropdown.html(
+        require('views/welcome_modal/charity_dropdown')(
           charities:       Charity.all()
           default_charity: Charity.findByAttribute('default',  true)
         )
+      )
 
-        @refreshElements()
-        @el.carousel({ 'interval': false }).carousel('next')
-        @el.mouseover()
+    Charity.fetch()
 
-  saveAndSubmitMe: (event) =>
-    event.preventDefault()
-    me = Me.first()
-    #TODO make sure to clean this up after Zombie upgrade
-    #using the spine element doesnt work here for some reason
-    me.can_be_contacted_by_crowdtap = !@$('#crowdtap-notify').attr('checked')
-    me.update()
+  moveNext: (e) ->
+    e.preventDefault()
     @el.carousel('next')
-
-  moveNext: (e) -> @el.carousel('next')
 
   displayWarning: (e) => @warning.toggle()
 
   updateMyCharity: (e) ->
     e.preventDefault()
+
     Me.first().fromForm(@charityForm).save()
     Spine.trigger 'modal:complete'
 

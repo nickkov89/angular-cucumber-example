@@ -16,6 +16,8 @@ Factory.define 'Me',
   residence_state:    'NY'
   top_awards_count:   45
   top_finish_count:   12
+  date_of_birth:      '8/12/1985'
+  residence_zip_code: '11201'
 
 Factory.define 'Brand',
   id:                 12345

@@ -2,6 +2,11 @@ Feature: Member sees stats plate
   As a member, I can see my profile information
   as well as my Crowdtap stats and status
 
+  Background:
+    Given the brands API request returns the following:
+      | id    | name        | slug        | logo      | header_image_url | action_count | crowd_participant |
+      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15           | true              |
+
   Scenario: Member sees all stats sections
     Given I am on the portal page
     Then I should see the me plate
@@ -15,6 +20,9 @@ Feature: Member sees stats plate
     And I live in "Williamsburg, NY"
     And I am supporting the "Red Cross" charity
     And I am on the portal page
+    And the brands API request returns the following:
+      | id    | name        | slug        | logo      | header_image_url | action_count | crowd_participant |
+      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15           | true              |
     And I have set my avatar to "/url/profile.jpg"
     And I am on the portal page
     Then I should see "Bruce W." within the me plate
@@ -64,17 +72,17 @@ Feature: Member sees stats plate
     And I am on the portal page
     Then I should see "30" within the finishes plate
 
-  Scenario: Nameplate updates when the 'member:UpdateNameplate' event is triggered
+  Scenario: Nameplate updates when the 'member:saved' event is triggered
     Given my name is "Banana Hammock"
     When I am on the portal page
     Then I should see "Banana H." within the me plate
     When I change my first name in my profile to "Maulin"
     And the "member:saved" event is triggred
-    Then I should see "Maulin" within the me plate
+    Then I should see "Maulin H" within the me plate
 
-  Scenario: Charity name updates in nameplate when member:updateNameplate event is triggered
+  Scenario: Charity name updates in nameplate when member:saved event is triggered
     Given I am supporting the "World Vision International" charity
-    And I am on the portal page
+    When I am on the portal page
     Then I should see "World Vision International" within the me plate
     When I change my charity information to "Memberlandia Jet Ski Fund"
     And the "member:saved" event is triggred

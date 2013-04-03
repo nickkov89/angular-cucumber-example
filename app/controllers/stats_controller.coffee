@@ -20,8 +20,7 @@ class StatsController extends Spine.Controller
     super
     @html require('views/stats')
 
-    Spine.bind 'member:saved', =>
-      Me.fetch()
+    Spine.bind 'member:saved', -> Me.fetch()
 
     Me.bind 'refresh', (mes) =>
       me = mes[0]

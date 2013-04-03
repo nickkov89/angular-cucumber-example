@@ -1,0 +1,6 @@
+<select class='input-large select charity_id' id='charity_id' name='charity_id'>
+  <option value='<%= @default_charity.id %>' selected> Select Your Charity </option>
+  <% for charity in @charities: %>
+    <option value='<%= charity.id %>'> <%= charity.name %> </option>
+  <% end %>
+</select>
