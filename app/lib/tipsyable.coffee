@@ -7,6 +7,6 @@ module.exports =
         fade:    true,
         opacity: 1
         html:    true
-        gravity: $(el).data('gravity')
+        gravity: $(el).data('gravity') || 's'
         title:   -> $("##{ $(el).data('tooltip-id') }").html()
       $(el).tipsy $.extend(defaults, options)

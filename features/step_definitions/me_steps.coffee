@@ -41,6 +41,16 @@ module.exports = ->
     @me.top_finish_count = count
     next()
 
+  @Given /^I joined crowdtap over a year ago$/, (next) ->
+    @me or= @Factory('Me')
+    @me.created_at = (new Date).add({years: -1, days: -1})
+    next()
+
+  @Given /^I just joined crowdtap$/, (next) ->
+    @me or= @Factory('Me')
+    @me.created_at = (new Date).add({ minutes: -10 })
+    next()
+
   @Given /^I am (not )?participating with the following brands:$/, (negator, table, next) ->
     rows = table.hashes()
     brands = rows.map (row) =>

@@ -204,7 +204,7 @@ sharedSteps = module.exports = ->
     tipsy_element.length.should.eql 0, "tipsy element should not be visible"
     next()
 
-  @Then /^I should see a tipsy tooltip containing "([^"]*)"$/, (text,next) ->
+  @Then /^I should see a tipsy tooltip containing "([^"]*)"$/, (text, next) ->
     tipsy_element = @$(".tipsy:contains(#{text})")
     tipsy_element.length.should.eql 1, "tipsy element should be visible with text #{text}"
     next()

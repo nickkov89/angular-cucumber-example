@@ -43,6 +43,7 @@ module.exports =
   '^the new brands zero state$':                 '#new-brands-zero-state'
   '^the footer$':                                'footer'
   '^the status help icon$':                      '.status-plate .status-help'
+  '^the one year ribbon$':                       'img.one-year-ribbon'
 
   #On Ramping Api
   'the me endpoint':                             '/api/v2/me'

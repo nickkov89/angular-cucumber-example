@@ -6,14 +6,15 @@ class StatsController extends Spine.Controller
   className: 'stats'
 
   elements:
-    '.awards-count':    'awardsCount'
-    '.charity':         'charity'
-    '.finishes-count':  'finishesCount'
-    '.location':        'location'
-    '.mug img':         'mug'
-    '.name':            'name'
-    '.stars-count':     'starsCount'
-    '.status-plate':    'statusPlate'
+    '.awards-count':       'awardsCount'
+    '.charity':            'charity'
+    '.finishes-count':     'finishesCount'
+    '.location':           'location'
+    '.mug img':            'mug'
+    '.name':               'name'
+    '.stars-count':        'starsCount'
+    '.status-plate':       'statusPlate'
+    'img.one-year-ribbon': 'ribbon'
 
   constructor: ->
     super
@@ -33,6 +34,11 @@ class StatsController extends Spine.Controller
       @finishesCount.text(me.top_finish_count)
       @statusPlate.html require("views/stats/status_flag_#{me.flags_count}")
 
-      Tipsyable.tipsy gravity: 'ne'
+      created_at   = (new Date(me.created_at))
+      one_year_ago = (new Date).addYears(-1)
+
+      @ribbon.toggle(created_at.isBefore(one_year_ago) )
+
+      Tipsyable.tipsy()
 
 module.exports = StatsController
