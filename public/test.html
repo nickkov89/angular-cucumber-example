@@ -23,6 +23,22 @@
           social_media_post_character_limit: 100
         };
 
+       params = {};
+       $.each(window.location.search.slice(1).split('&'), function(i, set){
+         var opts = set.split('=');
+         key   = opts[0];
+         value = opts[1];
+
+         (value == 'true')  ? value = true  : null ;
+         (value == 'false') ? value = false : null ;
+         (value == 'null')  ? value = null  : null ;
+         params[key] = value;
+       });
+
+       if ( params.hideModal ){
+         options.show_welcome_modal = false
+       };
+
         exports.portal_app = new Portal(options);
       });
     </script>

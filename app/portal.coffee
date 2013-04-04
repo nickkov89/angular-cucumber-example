@@ -24,8 +24,9 @@ class Portal extends Spine.Controller
 
       if Spine.config.show_welcome_modal
         @append( new WelcomeModal )
+      else
+        Brand.fetch()
 
-      Brand.one 'refresh', -> Me.fetch()
-      Brand.fetch()
+      Me.fetch()
 
 module.exports = Portal
