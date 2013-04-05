@@ -9,6 +9,9 @@ Charity          = require 'models/charity'
 Translations     = require 'lib/translations'
 
 class Portal extends Spine.Controller
+  elements:
+    'footer': 'footer'
+
   constructor: (options) ->
     Spine.env = Spine.environments[options.env] || Spine.environments.development
     Spine.current_user = options.current_user
@@ -22,11 +25,18 @@ class Portal extends Spine.Controller
       @append new BrandsController()
       @append require('views/footer')
 
+      @setFooter()
+      $(window).resize @setFooter
+
       if Spine.config.show_welcome_modal
         @append( new WelcomeModal )
       else
         Brand.fetch()
 
       Me.fetch()
+
+  setFooter: =>
+    pos = if @el.height() < $(window).height() then 'fixed' else 'relative'
+    @footer.css(position: pos, bottom: 0)
 
 module.exports = Portal
