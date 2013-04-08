@@ -27,3 +27,8 @@ Feature: Member sees My Brands section
     And I am on the portal page and have seen the welcome modal
     Then I should see "1" within the brands count of the my brands section
     And I should see "15" within the actions count of the my brands section
+
+  Scenario: Member sees new brands counts zero state
+    Given I am on the portal page and have seen the welcome modal
+    Then I should see "-" within the brands count of the my brands section
+    And I should see "-" within the actions count of the my brands section

@@ -28,6 +28,11 @@ Feature: Member sees New Brands section
     Then I should see "1" within the brands count of the new brands section
     And I should see "10" within the actions count of the new brands section
 
+  Scenario: Member sees new brands counts zero state
+    Given I am on the portal page and have seen the welcome modal
+    Then I should see "-" within the brands count of the new brands section
+    And I should see "-" within the actions count of the new brands section
+
   Scenario: Member sees correct action count badge on brands grid
     Given the brands API request returns the following:
       | id    | name        | slug        | logo      | header_image_url | action_count | crowd_participant |

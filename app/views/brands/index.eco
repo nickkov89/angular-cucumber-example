@@ -12,7 +12,7 @@
         <div class="span8">
           <h3>
             My Brands
-            <small><span class="brands-count">0</span> Brands | <span class="actions-count">0</span> Actions</small>
+            <small><span class="brands-count">-</span> Brands | <span class="actions-count">-</span> Actions</small>
           </h3>
         </div>
         <div class="span4">
@@ -23,7 +23,9 @@
         </div>
       </div>
       <hr>
-      <div class="row brands-grid"></div>
+      <div class="row brands-grid">
+        <div class="min-height-placeholder"></div>
+      </div>
     </div>
   </div>
 
@@ -31,10 +33,12 @@
     <div id="new-brands" class="span12">
       <h3>
         New Brands
-        <small><span class="brands-count">0</span> Brands | <span class="actions-count">0</span> Actions</small>
+        <small><span class="brands-count">-</span> Brands | <span class="actions-count">-</span> Actions</small>
       </h3>
       <hr>
-      <div class="row brands-grid"></div>
+      <div class="row brands-grid">
+        <div class="min-height-placeholder"></div>
+      </div>
     </div>
   </div>
 </div>
