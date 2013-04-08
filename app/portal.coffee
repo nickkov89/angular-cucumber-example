@@ -25,7 +25,7 @@ class Portal extends Spine.Controller
       @append new BrandsController()
       @append require('views/footer')
 
-      @setFooter()
+      Brand.one 'refresh', @setFooter
       $(window).resize @setFooter
 
       if Spine.config.show_welcome_modal
