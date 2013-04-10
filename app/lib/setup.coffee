@@ -25,8 +25,9 @@ Spine.environments =
     real_browser:       true
     assetPrefixUrl:     'http://localhost:9295'
 
-window?.I18n   = require('lib/i18n')
-window?.Helper = window?.H = require('lib/helpers')
+window?.I18n    = require('lib/i18n')
+window?.Rollout = require('lib/rollout')
+window?.Helper  = window?.H = require('lib/helpers')
 
 module.exports =
   Spine: Spine

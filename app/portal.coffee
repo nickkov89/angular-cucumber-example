@@ -8,6 +8,11 @@ WelcomeModal     = require 'controllers/welcome_modal'
 Charity          = require 'models/charity'
 Translations     = require 'lib/translations'
 
+Rollout.do
+  params:
+    staging: ->
+      Brand = require 'models/staging_brand'
+
 class Portal extends Spine.Controller
   elements:
     'footer': 'footer'

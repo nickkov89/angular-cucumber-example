@@ -1,0 +1,12 @@
+<a href="/<%= @slug %>" id="<%= @slug %>" class="brand-box span4" data-action-count="<%= @actions_new %>">
+  <div class="brand-header" style="background-image: url(<%= @header_image_url %>)"></div>
+  <div class="brand-meta">
+    <img src="<%= @logo %>" class="brand-logo">
+    <h4 class="brand-name"><%= @name %></h4>
+    <% if @actions_new > 0: %>
+    <div class="action-count-new badge badge-important">
+      <%= @actions_new %> new action<%= 's' unless @actions_new == 1 %>
+    </div>
+    <% end %>
+  </div>
+</a>

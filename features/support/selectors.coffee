@@ -32,6 +32,9 @@ module.exports =
   '^the (brands|actions) count of the (my|new) brands section$': (countType, section) ->
     return "##{section}-brands .#{countType}-count"
 
+  '^the (new|in-progress|expiring) actions count badge for "([^"]+)"$': (type, slug) ->
+    return "##{slug} .action-count-#{type}"
+
   '^the stats section$':                         '.stats'
   '^the brands section$':                        '#brands'
   '^the My Brands section$':                     '#my-brands'
