@@ -26,8 +26,14 @@ Spine.environments =
     assetPrefixUrl:     'http://localhost:9295'
 
 window?.I18n    = require('lib/i18n')
-window?.Rollout = require('lib/rollout')
 window?.Helper  = window?.H = require('lib/helpers')
+
+window?.Swerve = require('swerve')
+Swerve.configure
+  development:
+    action_notifications: true
+  production:
+    action_notifications: false
 
 module.exports =
   Spine: Spine

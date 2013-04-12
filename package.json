@@ -8,7 +8,8 @@
     "hem-less":     "0.0.4",
     "json2ify":     "0.0.3",
     "spine":        "1.0.8",
-    "underscore":   "1.4.4"
+    "underscore":   "1.4.4",
+    "swerve":       "0.0.3"
   },
   "devDependencies" : {
     "coffee-script":  "1.6.1",

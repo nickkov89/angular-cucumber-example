@@ -8,10 +8,7 @@ WelcomeModal     = require 'controllers/welcome_modal'
 Charity          = require 'models/charity'
 Translations     = require 'lib/translations'
 
-Rollout.do
-  params:
-    staging: ->
-      Brand = require 'models/staging_brand'
+Brand = require 'models/staging_brand' if Swerve.feature('action_notifications')
 
 class Portal extends Spine.Controller
   elements:
@@ -23,6 +20,9 @@ class Portal extends Spine.Controller
     Spine.assets_version = options.assets_version
     Spine.config =
       show_welcome_modal: options.show_welcome_modal
+
+    Swerve.setEnv(options.env)
+
     super
 
     Translations.onLoaded =>

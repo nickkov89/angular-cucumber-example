@@ -1,10 +1,6 @@
 { Spine } = require 'lib/setup'
 Brand     = require 'models/brand'
-
-Rollout.do
-  params:
-    staging: ->
-      Brand = require 'models/staging_brand'
+Brand     = require 'models/staging_brand' if Swerve.feature('action_notifications')
 
 class BrandsController extends Spine.Controller
   attributes:
@@ -51,12 +47,10 @@ class BrandsController extends Spine.Controller
     grid       = @["#{properName}Grid"]
     brands     = Brand[properName]()
 
-    Rollout.do
-      default: ->
-        grid.html require('views/brands/brand_box')(brands)
-      params:
-        staging: ->
-          grid.html require("views/brands/#{type}_brand_box")(brands)
+    if Swerve.feature('action_notifications')
+      grid.html require("views/brands/#{type}_brand_box")(brands)
+    else
+      grid.html require('views/brands/brand_box')(brands)
 
     @["#{properName}Count"].text brands.length
     @["#{properName}ActionsCount"].text Brand.totalActions(properName)
