@@ -1,0 +1,25 @@
+<a href="/<%= @slug %>" id="<%= @slug %>" class="brand-box span4 animated <%= 'bounceIn' unless @actions_new || !@crowd_participant %>" data-action-count="<%= @actions_new %>">
+  <div class="brand-header" style="background-image: url(<%= @header_image_url %>)"></div>
+  <div class="brand-meta">
+    <img src="<%= @logo %>" class="brand-logo">
+    <h4 class="brand-name"><%= @name %></h4>
+    <% if parseInt(@actions_new) > 0: %>
+      <span class="actions-count actions-count-new">
+        <i class="icon-certificate"></i>
+        <%= @actions_new %>
+      </span>
+    <% end %>
+    <% if parseInt(@actions_in_progress) > 0: %>
+      <span class="actions-count actions-count-in-progress">
+        <i class="icon-tasks"></i>
+        <%= @actions_in_progress %>
+      </span>
+    <% end %>
+    <% if parseInt(@actions_expiring) > 0: %>
+      <span class="actions-count actions-count-expiring">
+        <i class="icon-time"></i>
+        <%= @actions_expiring %>
+      </span>
+    <% end %>
+  </div>
+</a>

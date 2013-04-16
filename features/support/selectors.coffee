@@ -33,7 +33,7 @@ module.exports =
     return "##{section}-brands .#{countType}-count"
 
   '^the (new|in-progress|expiring) actions count badge for "([^"]+)"$': (type, slug) ->
-    return "##{slug} .action-count-#{type}"
+    return "##{slug} .actions-count-#{type}"
 
   '^the stats section$':                         '.stats'
   '^the brands section$':                        '#brands'

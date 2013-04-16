@@ -42,6 +42,28 @@ label[for="hide-empty-brands"] {
   &:hover {
     text-decoration: none;
   }
+
+  .actions-count {
+    border-right: 1px solid #bbb;
+    margin-right: 9px;
+    padding-right: 6px;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  .actions-count-new {
+    color: #73bf2b;
+  }
+
+  .actions-count-in-progress {
+    color: #c9ab25;
+  }
+
+  .actions-count-expiring {
+    color: @maroon;
+  }
 }
 
 &[data-action-count=0] {

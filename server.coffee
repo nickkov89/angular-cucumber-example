@@ -37,9 +37,9 @@ _(10).times (i) ->
     name:                "Brand-#{1230 +i}"
     logo:                "http://dummyimage.com/50x50/ccc/555.png&text=logo"
     action_count:        i*3
-    actions_new:         (i-1)*3
-    actions_in_progress: i*2
-    actions_expiring:    i
+    actions_new:         i*3
+    actions_in_progress: i*2 * !(i%2)
+    actions_expiring:    i   * !(i%2)
     crowd_participant:   !(i%2)
   brands.push new Factory('Brand', brand)
 

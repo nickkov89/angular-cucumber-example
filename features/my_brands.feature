@@ -30,9 +30,9 @@ Feature: Member sees My Brands section
 
   Scenario: Member sees my brands counts
     Given the brands API request returns the following:
-      | id    | name        | slug        | logo      | header_image_url | actions_new  | crowd_participant |
-      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15           | true              |
-      | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 10           | false             |
+      | id    | name        | slug        | logo      | header_image_url | actions_count | crowd_participant |
+      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15            | true              |
+      | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 10            | false             |
     And I am on the portal page with the following params:
       | hideModal | action_notifications |
       | true      | true                 |

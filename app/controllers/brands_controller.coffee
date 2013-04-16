@@ -48,7 +48,7 @@ class BrandsController extends Spine.Controller
     brands     = Brand[properName]()
 
     if Swerve.feature('action_notifications')
-      grid.html require("views/brands/#{type}_brand_box")(brands)
+      grid.html require("views/brands/staging_brand_box")(brands)
     else
       grid.html require('views/brands/brand_box')(brands)
 
