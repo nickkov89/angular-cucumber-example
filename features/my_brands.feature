@@ -51,9 +51,9 @@ Feature: Member sees My Brands section
 
   Scenario: Member sees my brands grid
     Given I am participating with the following brands:
-      | id    | name        | slug        | logo      | header_image_url | action_count |
-      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15           |
-      | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 20           |
+      | id    | name        | slug        | logo      | header_image_url | actions_count |
+      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15            |
+      | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 20            |
     And I am on the portal page and have seen the welcome modal
     Then I should see the "steak-shack" brand box within the My Brands section
     And the "steak-shack" brand box header should have a background image of "bar-1.jpg"
@@ -68,9 +68,9 @@ Feature: Member sees My Brands section
 
   Scenario: Member sees my brands counts
     Given the brands API request returns the following:
-      | id    | name        | slug        | logo      | header_image_url | action_count | crowd_participant |
-      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15           | true              |
-      | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 10           | false             |
+      | id    | name        | slug        | logo      | header_image_url | actions_count | crowd_participant |
+      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15            | true              |
+      | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 10            | false             |
     And I am on the portal page and have seen the welcome modal
     Then I should see "1" within the brands count of the my brands section
     And I should see "15" within the actions count of the my brands section

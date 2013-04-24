@@ -26,7 +26,6 @@ Factory.define 'Brand',
   description:         'The dreams of yesterday are the hopes of today and the reality of tomorrow.'
   header_image_url:    'http://dummyimage.com/300x128/000/fff.jpg&text=header'
   logo:                'http://dummyimage.com/33x33/333/fff.jpg&text=logo'
-  action_count:        12
   actions_count:       12
   actions_new:         3
   actions_expiring:    2

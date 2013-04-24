@@ -34,8 +34,8 @@ Feature: Member sees welcome modal
       | 2  | Bacon | false   |
       | 3  | Bits  | true    |
     And the brands API request returns the following:
-      | id    | name        | slug        | logo      | header_image_url | action_count | crowd_participant |
-      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15           | true              |
+      | id    | name        | slug        | logo      | header_image_url | actions_count | crowd_participant |
+      | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15            | true              |
 
   Scenario: Member sees the welcome modal
     Given the API returns a successful response for PUT requests to "/api/v2/me"
