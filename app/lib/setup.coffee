@@ -8,6 +8,10 @@ Spine = require 'spine'
 
 Spine.environments =
   development:
+    copycopterUrl:      'http://copycopter.crowdtap.com/api/v2/projects/0f393bf25199072b53d57bdde4480101/published_blurbs?format=hierarchy'
+    real_browser:       true
+    assetPrefixUrl:     'http://d18w78eemwzu3j.cloudfront.net/crowdtap.portal'
+  local:
     copycopterUrl:     'http://localhost:4004/translations'
     real_browser:       true
     assetPrefixUrl:    'http://localhost:9295'
