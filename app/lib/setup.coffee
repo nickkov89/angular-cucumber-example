@@ -33,11 +33,6 @@ window?.I18n    = require('lib/i18n')
 window?.Helper  = window?.H = require('lib/helpers')
 
 window?.Swerve = require('swerve')
-Swerve.configure
-  development:
-    action_notifications: true
-  production:
-    action_notifications: false
 
 module.exports =
   Spine: Spine

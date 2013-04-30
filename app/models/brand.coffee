@@ -1,7 +1,8 @@
 Spine = require('spine')
 
 class Brand extends Spine.Model
-  @configure 'Brand', 'id', 'name', 'slug', 'description', 'header_image_url', 'logo', 'actions_count', 'crowd_participant'
+  @configure 'Brand', 'id', 'name', 'slug', 'description', 'header_image_url', 'logo', 'actions_count',
+                      'actions_new', 'actions_expiring', 'actions_in_progress', 'crowd_participant'
 
   @extend Spine.Model.Ajax
 

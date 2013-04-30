@@ -8,8 +8,6 @@ WelcomeModal     = require 'controllers/welcome_modal'
 Charity          = require 'models/charity'
 Translations     = require 'lib/translations'
 
-Brand = require 'models/staging_brand' if Swerve.feature('action_notifications')
-
 class Portal extends Spine.Controller
   elements:
     'footer': 'footer'
