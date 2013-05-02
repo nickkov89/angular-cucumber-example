@@ -3,10 +3,11 @@ Feature: Member sees New Brands section
   I can view a list of brands I'm not currently participating in
 
   Scenario: Member sees new brands grid
-    Given I am not participating with the following brands:
-      | id    | name       | slug       | logo      | header_image_url | actions_new |
-      | 12345 | Tres Toros | tres-toros | foo-1.jpg | bar-1.jpg        | 15          |
-      | 12346 | Half Foods | half-foods | foo-2.jpg | bar-2.jpg        | 20          |
+    Given the brands API request returns the following:
+      | id    | name       | slug       | logo      | header_image_url | actions_count | actions_new | crowd_participant |
+      | 12345 | Tres Toros | tres-toros | foo-1.jpg | bar-1.jpg        | 15            | 15          | false             |
+      | 12346 | Half Foods | half-foods | foo-2.jpg | bar-2.jpg        | 20            | 20          | false             |
+      | 12347 | McRonalds  | mcronalds  | foo-3.jpg | bar-3.jpg        | 0             | 0           | false             |
     And I am on the portal page with the following params:
       | hideModal |
       | true      |
@@ -20,6 +21,7 @@ Feature: Member sees New Brands section
     And I should see "Half Foods" within the "half-foods" brand box
     And I should see the "foo-2.jpg" image within the "half-foods" brand box
     And I should see "20" within the new actions count badge for "half-foods"
+    But I should not see the "mcronalds" brand box within the New Brands section
 
   Scenario: Member sees new brands counts
     Given the brands API request returns the following:

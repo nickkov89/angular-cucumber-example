@@ -12,7 +12,7 @@ class Brand extends Spine.Model
     @select (brand) -> brand.crowd_participant
 
   @newBrands: ->
-    @select (brand) -> !brand.crowd_participant
+    @select (brand) -> !brand.crowd_participant && brand.actions_count > 0
 
   @totalActions: (set) ->
     brands = if set? then @[set]() else @all()

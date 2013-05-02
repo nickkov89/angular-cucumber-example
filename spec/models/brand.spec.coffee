@@ -16,10 +16,11 @@ describe 'Brand', ->
       expect(Brand.myBrands()).toEqual([one, two])
 
   describe ".newBrands", ->
-    it "returns the brands of which I'm not a crowd participant in", ->
-      one   = Brand.create(id: 12345, crowd_participant: true)
-      two   = Brand.create(id: 12346, crowd_participant: true)
-      three = Brand.create(id: 12347, crowd_participant: false)
+    it "returns the brands with actions of which I'm not a crowd participant in", ->
+      one   = Brand.create(id: 12345, crowd_participant: true, actions_count: 1)
+      two   = Brand.create(id: 12346, crowd_participant: true, actions_count: 0)
+      three = Brand.create(id: 12347, crowd_participant: false, actions_count: 1)
+      four  = Brand.create(id: 12348, crowd_participant: false, actions_count: 0)
       expect(Brand.newBrands()).toEqual([three])
 
   describe ".totalActions", ->

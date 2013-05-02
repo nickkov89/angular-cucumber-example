@@ -3,10 +3,10 @@ Feature: Member sees various zero states
   I see appropriate zero states on the portal page
 
   Scenario: New member sees intro zero state
-    Given the brands API request returns the following:
-      | id    | name       | slug       | logo      | header_image_url | actions_count | crowd_participant |
-      | 12345 | Dairy King | dairy-king | foo-1.jpg | bar-1.jpg        | 0             | false             |
-      | 12346 | Tres Toros | tres-toros | foo-2.jpg | bar-2.jpg        | 0             | false             |
+    Given the API returns a successful response for GET requests to "/api/v2/brands" and responds with:
+    """
+    []
+    """
     And I am on the portal page and have seen the welcome modal
     Then I should see the my brands zero state within the My Brands section
     Then I should not see the no actions zero state
@@ -39,6 +39,6 @@ Feature: Member sees various zero states
     And I am on the portal page and have seen the welcome modal
     Then I should see the no actions zero state
     And I should see the "dairy-king" brand box within the My Brands section
-    And I should see the "tres-toros" brand box within the New Brands section
+    And I should not see the "tres-toros" brand box within the New Brands section
     And the hide brands with no actions checkbox should not be checked
     And the hide brands with no actions checkbox should be disabled
