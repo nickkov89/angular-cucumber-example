@@ -42,3 +42,17 @@ Feature: Member sees My Brands section
       | true      |
     Then I should see "-" within the brands count of the my brands section
     And I should see "-" within the actions count of the my brands section
+
+  Scenario: Member sees action notification tooltips
+    Given I am participating with the following brands:
+      | id    | name        | slug        | actions_new | actions_in_progress | actions_expiring |
+      | 12345 | Steak Shack | steak-shack | 15          | 10                  | 5                |
+    And I am on the portal page with the following params:
+      | hideModal |
+      | true      |
+    When I hover over the new actions count badge for "steak-shack"
+    Then I should see a tipsy tooltip containing "New"
+    When I hover over the in-progress actions count badge for "steak-shack"
+    Then I should see a tipsy tooltip containing "In progress"
+    When I hover over the expiring actions count badge for "steak-shack"
+    Then I should see a tipsy tooltip containing "Expiring"

@@ -42,3 +42,8 @@
     </div>
   </div>
 </div>
+
+<!-- Action notification tipsy tooltips -->
+<p id="action-count-tooltip-new" style="display:none">New</p>
+<p id="action-count-tooltip-in-progress" style="display:none">In progress</p>
+<p id="action-count-tooltip-expiring" style="display:none">Expiring</p>

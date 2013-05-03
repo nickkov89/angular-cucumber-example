@@ -1,5 +1,6 @@
 { Spine } = require 'lib/setup'
 Brand     = require 'models/brand'
+Tipsyable = require 'lib/tipsyable'
 
 class BrandsController extends Spine.Controller
   attributes:
@@ -23,7 +24,9 @@ class BrandsController extends Spine.Controller
   constructor: ->
     super
     @html require('views/brands')
-    Brand.bind 'refresh', @update
+    Brand.bind 'refresh', =>
+      @update()
+      Tipsyable.tipsy(gravity: 'n')
 
     Spine.bind 'member:saved', ->
       Brand.fetch()

@@ -4,19 +4,19 @@
     <img src="<%= @logo %>" class="brand-logo">
     <h4 class="brand-name"><%= @name %></h4>
     <% if parseInt(@actions_new) > 0: %>
-      <span class="actions-count actions-count-new">
+      <span class="actions-count actions-count-new tipsyable" data-tooltip-id="action-count-tooltip-new">
         <i class="icon-certificate"></i>
         <%= @actions_new %>
       </span>
     <% end %>
     <% if parseInt(@actions_in_progress) > 0: %>
-      <span class="actions-count actions-count-in-progress">
+      <span class="actions-count actions-count-in-progress tipsyable" data-tooltip-id="action-count-tooltip-in-progress">
         <i class="icon-tasks"></i>
         <%= @actions_in_progress %>
       </span>
     <% end %>
     <% if parseInt(@actions_expiring) > 0: %>
-      <span class="actions-count actions-count-expiring">
+      <span class="actions-count actions-count-expiring tipsyable" data-tooltip-id="action-count-tooltip-expiring">
         <i class="icon-time"></i>
         <%= @actions_expiring %>
       </span>
