@@ -18,7 +18,7 @@
         <div class="span4">
           <label for="hide-empty-brands">
             <input type="checkbox" id="hide-empty-brands" checked="checked">
-            Hide brands without new actions
+            Only show brands with actions
           </label>
         </div>
       </div>
