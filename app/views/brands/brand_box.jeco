@@ -1,4 +1,4 @@
-<a href="/<%= @slug %>" id="<%= @slug %>" class="brand-box span4 animated <%= 'bounceIn' unless @actions_new || !@crowd_participant %>" data-action-count="<%= @actions_count %>">
+<a href="/<%= @slug %>" id="<%= @slug %>" data-track="portal-brand-banner" class="brand-box span4 animated <%= 'bounceIn' unless @actions_new || !@crowd_participant %>" data-action-count="<%= @actions_count %>">
   <div class="brand-header" style="background-image: url(<%= @header_image_url %>)"></div>
   <div class="brand-meta">
     <img src="<%= @logo %>" class="brand-logo">
