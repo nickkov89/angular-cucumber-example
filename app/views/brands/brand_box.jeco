@@ -2,7 +2,7 @@
   <div class="brand-header" style="background-image: url(<%= @header_image_url %>)"></div>
   <div class="brand-meta">
     <img src="<%= @logo %>" class="brand-logo">
-    <h4 class="brand-name"><%= @name %></h4>
+    <h5 class="brand-name"><%= @name %></h5>
     <% if parseInt(@actions_new) > 0: %>
       <span class="actions-count actions-count-new tipsyable" data-tooltip-id="action-count-tooltip-new">
         <i class="icon-certificate"></i>
