@@ -27,7 +27,6 @@
   "scripts" : {
     "spec":      "./node_modules/.bin/jasmine-node --noColor --coffee spec",
     "cucumber":  "./run_features.sh",
-    "build":     "./node_modules/.bin/lessc css/index.less > /dev/null && ./node_modules/.bin/jasmine-node --color --coffee spec && ./run_features.sh",
-    "run":       "./node_modules/.bin/coffee server.coffee"
+    "test":      "./node_modules/.bin/lessc css/index.less > /dev/null && ./node_modules/.bin/jasmine-node --color --coffee spec && ./run_features.sh"
   }
 }
