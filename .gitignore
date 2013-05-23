@@ -7,5 +7,6 @@ log/*
 npm-debug.log
 public/application.css
 public/application.js
+public/assets.shared*
 tags
 node_modules
