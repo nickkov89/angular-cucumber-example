@@ -4,5 +4,5 @@
   <i class="icon-question-sign status-help tipsyable" data-tooltip-id="status-help-text"></i>
 </p>
 <div id="status-help-text" style="display:none">
-  <%- I18n.t('status_tooltip.flag_1', { defaultValue: 'You have 1 flag. Try to avoid receiving more flags to remain in good standing.' }) %>
+  <%- PortalApp.CopyCopter.t('status_tooltip.flag_1', { defaultValue: 'You have 1 flag. Try to avoid receiving more flags to remain in good standing.' }) %>
 </div>

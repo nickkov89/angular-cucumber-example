@@ -6,34 +6,50 @@ require 'spine/lib/route'
 
 Spine = require 'spine'
 
-Spine.environments =
+environments =
   development:
-    copycopterUrl:      'http://copycopter.crowdtap.com/api/v2/projects/0f393bf25199072b53d57bdde4480101/published_blurbs?format=hierarchy'
-    real_browser:       true
-    assetPrefixUrl:     'http://d18w78eemwzu3j.cloudfront.net/crowdtap.portal'
+    real_browser:   true
+    assetPrefixUrl: 'http://d18w78eemwzu3j.cloudfront.net/crowdtap.portal'
+    copycopter:
+      apiKey: '0f393bf25199072b53d57bdde4480101'
+      host:   'copycopter.crowdtap.com'
   local:
-    copycopterUrl:     'http://localhost:4004/translations'
-    real_browser:       true
-    assetPrefixUrl:    'http://localhost:9295'
+    real_browser:   true
+    assetPrefixUrl: 'http://localhost:9295'
+    copycopter:
+      apiKey: 'api-key'
+      host:   'localhost:4004'
   test:
-    copycopterUrl:      'http://copycopter.example.com/translations'
-    real_browser:       false
-    assetPrefixUrl:     ''
+    real_browser:   false
+    assetPrefixUrl: ''
+    copycopter:
+      apiKey: 'api-key'
+      host:   'copycopter.example.com'
   production:
-    copycopterUrl:      'https://copycopter.crowdtap.com/api/v2/projects/0f393bf25199072b53d57bdde4480101/published_blurbs?format=hierarchy'
-    real_browser:       true
-    assetPrefixUrl:     'http://d18w78eemwzu3j.cloudfront.net/crowdtap.portal'
-    hashAssets:         true
+    real_browser:   true
+    assetPrefixUrl: 'http://d18w78eemwzu3j.cloudfront.net/crowdtap.portal'
+    hashAssets:     true
+    copycopter:
+      apiKey: '0f393bf25199072b53d57bdde4480101'
+      host:   'copycopter.crowdtap.com'
   staging:
-    copycopterUrl:      'http://copycopter.crowdtap.com/api/v2/projects/0f393bf25199072b53d57bdde4480101/published_blurbs?format=hierarchy'
-    real_browser:       true
-    assetPrefixUrl:     'http://localhost:9295'
+    real_browser:   true
+    assetPrefixUrl: 'http://localhost:9295'
+    copycopter:
+      apiKey: '0f393bf25199072b53d57bdde4480101'
+      host:   'copycopter.crowdtap.com'
 
-window?.I18n    = require('lib/i18n')
-window?.Helper  = window?.H = require('lib/helpers')
+PortalApp = {}
+PortalApp.setEnv = (options) ->
+  @env            = environments[options.env] || environments.development
+  @current_user   = options.current_user
+  @assets_version = options.assets_version
+  @config =
+    show_welcome_modal: options.show_welcome_modal
 
-window?.Swerve = require('swerve')
+  @CopyCopter = require('copycopter')(@env.copycopter)
+  @H          = require('lib/helpers')
+  @Swerve     = require('swerve')
+  @Swerve.setEnv(options.env)
 
-module.exports =
-  Spine: Spine
-  I18n:  I18n
+module.exports = window.PortalApp = PortalApp

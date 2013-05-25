@@ -36,7 +36,7 @@ class World
 
     nock('http://copycopter.example.com')
       .persist()
-      .filteringPath(/translations.+/g, 'translations')
+      .filteringPath(/api.+/g, 'translations')
       .get('/translations')
       .reply(200, (path) -> "#{path.match(/callback=(.+)/)[1]}({ 'en': { } })")
       #.log(console.log)

@@ -1,5 +1,6 @@
-Spine    = require('spine')
-Resource = require('../lib/resource')
+PortalApp = require 'lib/setup'
+Spine     = require 'spine'
+Resource  = require '../lib/resource'
 
 class BrandMe extends Spine.Model
   @configure 'BrandMe', 'id', 'member_id', 'brand_id', 'can_be_contacted_by_brand'
@@ -8,6 +9,6 @@ class BrandMe extends Spine.Model
   @extend Resource
 
   @url: ->
-    "/api/v2/brands/#{Spine.current_brand.id}/me"
+    "/api/v2/brands/#{PortalApp.current_brand.id}/me"
 
 module.exports = BrandMe

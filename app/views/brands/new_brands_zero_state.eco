@@ -1,4 +1,4 @@
 <div id="new-brands-zero-state" class="zero-state">
-  <h3><%- I18n.t('new_brands.zero_state.heading', { defaultValue: "You have no new brands available to you at this time." }) %></h3>
-  <p><%- I18n.t('new_brands.zero_state.subtext', { defaultValue: "You'll be notified via email when you have new brands to partner with." }) %></p>
+  <h3><%- PortalApp.CopyCopter.t('new_brands.zero_state.heading', { defaultValue: "You have no new brands available to you at this time." }) %></h3>
+  <p><%- PortalApp.CopyCopter.t('new_brands.zero_state.subtext', { defaultValue: "You'll be notified via email when you have new brands to partner with." }) %></p>
 </div>

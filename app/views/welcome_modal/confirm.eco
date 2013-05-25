@@ -1,5 +1,5 @@
 <div class='modal-body'>
-  <p><%- I18n.t('welcome_modal.confirmation.title', { defaultValue: 'Almost there! We just need you to confirm some of your information!' }) %></p>
+  <p><%- PortalApp.CopyCopter.t('welcome_modal.confirmation.title', { defaultValue: 'Almost there! We just need you to confirm some of your information!' }) %></p>
   <form class='clearfix'>
     <div class="left-col">
       <div class='control-group first_name last_name required <%= 'error' if @errors?.name? %>'>

@@ -1,4 +1,4 @@
-Spine    = require('lib/setup').Spine
+Spine    = require 'spine'
 Confirm  = require 'controllers/welcome_modal/confirm_controller'
 Carousel = require 'controllers/welcome_modal/carousel_controller'
 Me       = require 'models/me'

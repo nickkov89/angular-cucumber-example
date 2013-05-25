@@ -4,5 +4,5 @@
   <i class="icon-question-sign status-help tipsyable" data-tooltip-id="status-help-text" data-gravity='ne'></i>
 </p>
 <div id="status-help-text" style="display:none">
-  <%- I18n.t('status_tooltip.flag_0', { defaultValue: 'You have 0 flags. You receive flags for inappropriate submissions for Crowdtap actions.' }) %>
+  <%- PortalApp.CopyCopter.t('status_tooltip.flag_0', { defaultValue: 'You have 0 flags. You receive flags for inappropriate submissions for Crowdtap actions.' }) %>
 </div>

@@ -1,5 +1,5 @@
-{ Spine } = require('lib/setup')
-Me        = require 'models/me'
+Spine = require 'spine'
+Me    = require 'models/me'
 
 class ConfirmController extends Spine.Controller
   className: 'confirmation-pane controller'

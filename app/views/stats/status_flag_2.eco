@@ -4,5 +4,5 @@
   <i class="icon-question-sign status-help tipsyable" data-tooltip-id="status-help-text" data-gravity='ne'></i>
 </p>
 <div id="status-help-text" style="display:none">
-  <%- I18n.t('status_tooltip.flag_2', { defaultValue: 'You have 2 flags. If you receive any more, you will be banned from the system.' }) %>
+  <%- PortalApp.CopyCopter.t('status_tooltip.flag_2', { defaultValue: 'You have 2 flags. If you receive any more, you will be banned from the system.' }) %>
 </div>

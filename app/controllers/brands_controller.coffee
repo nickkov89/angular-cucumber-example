@@ -1,4 +1,4 @@
-{ Spine } = require 'lib/setup'
+Spine     = require 'spine'
 Brand     = require 'models/brand'
 Tipsyable = require 'lib/tipsyable'
 

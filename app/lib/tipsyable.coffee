@@ -1,4 +1,4 @@
-$ = require('lib/setup').Spine.$
+$ = require('spine').$
 
 module.exports =
   tipsy: (options) =>

@@ -81,7 +81,7 @@ CopycopterServer = require 'strata'
 #CopycopterServer.use(CopycopterServer.commonLogger)
 CopycopterServer.use(CopycopterServer.contentType, 'application/json')
 CopycopterServer.use(CopycopterServer.contentLength)
-CopycopterServer.get '/translations', (env, callback) ->
+CopycopterServer.get '/api/v2/projects/:key/published_blurbs', (env, callback) ->
   req = new CopycopterServer.Request(env)
   req.params (err, params) ->
     CopycopterServer.Response("#{params.callback}({ 'en': { } })").send(callback)

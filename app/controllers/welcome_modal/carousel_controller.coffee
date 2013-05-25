@@ -1,6 +1,6 @@
-{ Spine } = require('lib/setup')
-Charity   = require 'models/charity'
-Me        = require 'models/me'
+Spine   = require 'spine'
+Charity = require 'models/charity'
+Me      = require 'models/me'
 
 class CarouselController extends Spine.Controller
   className: 'carousel-pane carousel slide controller'
