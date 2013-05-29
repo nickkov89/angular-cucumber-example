@@ -9,10 +9,10 @@ serialize = (obj) ->
 
 module.exports = ->
 
-  @Given /^I am on the portal page( and have seen the welcome modal)?$/, (hideModal, next) ->
+  @Given /^I am on the portal page$/, (next) ->
     @me or= @Factory('Me')
     @nock.get('/api/v2/me').reply(200, JSON.stringify(@me))
-    @visit "/test.html?hideModal=#{hideModal?}", next
+    @visit "/test.html", next
 
   @Given /^I am on the portal page with the following params:$/, (table, next) ->
     @me or= @Factory('Me')

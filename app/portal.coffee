@@ -3,7 +3,6 @@ StatsController  = require 'controllers/stats_controller'
 BrandsController = require 'controllers/brands_controller'
 Me               = require 'models/me'
 Brand            = require 'models/brand'
-WelcomeModal     = require 'controllers/welcome_modal'
 Charity          = require 'models/charity'
 
 class Portal extends Spine.Controller
@@ -22,9 +21,6 @@ class Portal extends Spine.Controller
 
       Brand.one 'refresh', @setFooter
       $(window).resize @setFooter
-
-      if PortalApp.config.show_welcome_modal
-        @append( new WelcomeModal )
 
       Brand.fetch()
       Me.fetch()

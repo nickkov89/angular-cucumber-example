@@ -1,39 +1,41 @@
 module.exports =
+
   # Shared
 
   '^(.*) within (.*)$': (inner, outer) ->
-    return "#{@selectorFor(outer)} #{@selectorFor(inner)}"
+    "#{@selectorFor(outer)} #{@selectorFor(inner)}"
 
   '^the "([^"]*)" image$': (imageUrl) ->
-    return "img[src='#{imageUrl}']"
+    "img[src='#{imageUrl}']"
 
   '^the "([^"]*)" icon$': (name) ->
-    return "i.icon-#{name}"
+    "i.icon-#{name}"
 
   '^"([^"]*)" linking to "([^"]*)"$': (text, url) ->
-    return "a[href*='#{url}']:contains('#{text}')"
+    "a[href*='#{url}']:contains('#{text}')"
 
   '^"([^"]*)"$': (text) ->
-    return "a:contains(#{text})"
+    "a:contains(#{text})"
 
   '^the brand menu item for brand "(.+)"$': (brand_id) ->
-    return "#brand-menu li.#{brand_id}"
+    "#brand-menu li.#{brand_id}"
 
   # Portal-specific
+
   '^the (.+) plate$': (which) ->
-    return ".#{which}-plate"
+    ".#{which}-plate"
 
   '^the "([^"]*)" brand box$': (slug) ->
-    return "a##{slug}.brand-box[href='/#{slug}']"
+    "a##{slug}.brand-box[href='/#{slug}']"
 
   '^the "([^"]*)" brand box header$': (slug) ->
-    return "##{slug}.brand-box .brand-header"
+    "##{slug}.brand-box .brand-header"
 
   '^the (brands|actions) count of the (my|new) brands section$': (countType, section) ->
-    return "##{section}-brands .#{countType}-count"
+    "##{section}-brands .#{countType}-count"
 
   '^the (new|in-progress|expiring) actions count badge for "([^"]+)"$': (type, slug) ->
-    return "##{slug} .actions-count-#{type}"
+    "##{slug} .actions-count-#{type}"
 
   '^the stats section$':                         '.stats'
   '^the brands section$':                        '#brands'
@@ -48,24 +50,11 @@ module.exports =
   '^the status help icon$':                      '.status-plate .status-help'
   '^the one year ribbon$':                       'img.one-year-ribbon'
 
-  #On Ramping Api
-  'the me endpoint':                             '/api/v2/me'
-  #On Ramp Modals
-  '^actions?$':                             '.action'
-  '^the welcome modal$':                    '#welcome-modal'
-  '^the select your charity dropdown$':     'select.charity_id'
-  '^the welcome modal header image$':       'img[src*="png"]'
-  '^the share my email checkbox$':          '#email-share'
-  '^the crowdtap can notify me checkbox$':  '#crowdtap-notify'
-  '^the confirm tracking pixel$':           '.confirm-tracking-pixel'
-
   '^the (.+) input with the value "([^"]+)"$': (field, value) ->
     "input[id*='#{field.toUnderscore()}'][value='#{value}']"
 
   '^the (.+) input with the selected value "([^"]+)"$': (field, value) ->
     "select[id*='#{field.toUnderscore()}'] option[value='#{value}'][selected]"
-
-
 
   '^the (.+) pane$': (type) ->
     ".#{type}-pane"
@@ -77,7 +66,7 @@ module.exports =
     "input[id*='#{id.toUnderscore()}']"
 
   '^the (active|completed) (carousel|list) actions?$': (type, section) ->
-    return "##{type}-actions-#{section}"
+    "##{type}-actions-#{section}"
 
   '^the (.+) control group error$': (type) ->
     ".control-group.#{type.toUnderscore()}.error .help-block"
@@ -87,4 +76,4 @@ module.exports =
   '^(.+)$': (selector) ->
     console.log "\n\nNo selector was found for '#{selector}'"
     console.log "Please do not commit code that uses this into master\n"
-    return selector
+    selector

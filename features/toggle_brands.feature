@@ -9,7 +9,7 @@ Feature: Member can hide brands with no actions
       | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 0             | true              |
       | 12347 | Half Foods  | half-foods  | foo-3.jpg | bar-3.jpg        | 1             | false             |
       | 12348 | Dairy King  | dairy-king  | foo-4.jpg | bar-4.jpg        | 0             | false             |
-    And I am on the portal page and have seen the welcome modal
+    And I am on the portal page
 
   Scenario: Member sees the hide brands with no actions checkbox
     Then I should see the hide brands with no actions checkbox

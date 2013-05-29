@@ -7,7 +7,7 @@ Feature: Member sees various zero states
     """
     []
     """
-    And I am on the portal page and have seen the welcome modal
+    And I am on the portal page
     Then I should see the my brands zero state within the My Brands section
     Then I should not see the no actions zero state
 
@@ -16,7 +16,7 @@ Feature: Member sees various zero states
       | id    | name       | slug       | logo      | header_image_url | actions_count | crowd_participant |
       | 12345 | Dairy King | dairy-king | foo-1.jpg | bar-1.jpg        | 0             | true              |
       | 12346 | Tres Toros | tres-toros | foo-2.jpg | bar-2.jpg        | 1             | false             |
-    And I am on the portal page and have seen the welcome modal
+    And I am on the portal page
     Then I should see the my brands zero actions state within the My Brands section
     And I should not see the "dairy-king" brand box within the My Brands section
     But I should see the "tres-toros" brand box within the New Brands section
@@ -26,7 +26,7 @@ Feature: Member sees various zero states
       | id    | name       | slug       | logo      | header_image_url | actions_count | crowd_participant |
       | 12345 | Dairy King | dairy-king | foo-1.jpg | bar-1.jpg        | 1             | true              |
       | 12346 | Tres Toros | tres-toros | foo-2.jpg | bar-2.jpg        | 0             | true              |
-    And I am on the portal page and have seen the welcome modal
+    And I am on the portal page
     Then I should see the new brands zero state within the New Brands section
     And I should not see the "tres-toros" brand box within the My Brands section
     But I should see the "dairy-king" brand box within the My Brands section
@@ -36,7 +36,7 @@ Feature: Member sees various zero states
       | id    | name       | slug       | logo      | header_image_url | actions_count | crowd_participant |
       | 12345 | Dairy King | dairy-king | foo-1.jpg | bar-1.jpg        | 0             | true              |
       | 12346 | Tres Toros | tres-toros | foo-2.jpg | bar-2.jpg        | 0             | false             |
-    And I am on the portal page and have seen the welcome modal
+    And I am on the portal page
     Then I should see the no actions zero state
     And I should see the "dairy-king" brand box within the My Brands section
     And I should not see the "tres-toros" brand box within the New Brands section

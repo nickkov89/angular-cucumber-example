@@ -7,9 +7,7 @@ Feature: Member sees My Brands section
       | id    | name        | slug        | logo      | header_image_url | actions_new | actions_in_progress | actions_expiring |
       | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15          | 10                  | 5                |
       | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 20          | 15                  | 10               |
-    And I am on the portal page with the following params:
-      | hideModal |
-      | true      |
+    And I am on the portal page
     Then I should see the "steak-shack" brand box within the My Brands section
     And the "steak-shack" brand box header should have a background image of "bar-1.jpg"
     And I should see "Steak Shack" within the "steak-shack" brand box
@@ -30,16 +28,12 @@ Feature: Member sees My Brands section
       | id    | name        | slug        | logo      | header_image_url | actions_count | crowd_participant |
       | 12345 | Steak Shack | steak-shack | foo-1.jpg | bar-1.jpg        | 15            | true              |
       | 12346 | McRonalds   | mcronalds   | foo-2.jpg | bar-2.jpg        | 10            | false             |
-    And I am on the portal page with the following params:
-      | hideModal |
-      | true      |
+    And I am on the portal page
     Then I should see "1" within the brands count of the my brands section
     And I should see "15" within the actions count of the my brands section
 
   Scenario: Member sees new brands counts zero state
-    Given I am on the portal page with the following params:
-      | hideModal |
-      | true      |
+    Given I am on the portal page
     Then I should see "-" within the brands count of the my brands section
     And I should see "-" within the actions count of the my brands section
 
@@ -47,9 +41,7 @@ Feature: Member sees My Brands section
     Given I am participating with the following brands:
       | id    | name        | slug        | actions_new | actions_in_progress | actions_expiring |
       | 12345 | Steak Shack | steak-shack | 15          | 10                  | 5                |
-    And I am on the portal page with the following params:
-      | hideModal |
-      | true      |
+    And I am on the portal page
     When I hover over the new actions count badge for "steak-shack"
     Then I should see a tipsy tooltip containing "New"
     When I hover over the in-progress actions count badge for "steak-shack"

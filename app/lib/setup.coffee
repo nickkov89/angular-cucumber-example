@@ -40,16 +40,13 @@ environments =
       host:   'copycopter.crowdtap.com'
 
 PortalApp = {}
-PortalApp.setEnv = (options) ->
+PortalApp.setEnv  = (options) ->
   @env            = environments[options.env] || environments.development
   @current_user   = options.current_user
   @assets_version = options.assets_version
-  @config =
-    show_welcome_modal: options.show_welcome_modal
-
-  @CopyCopter = require('copycopter')(@env.copycopter)
-  @H          = require('lib/helpers')
-  @Swerve     = require('swerve')
+  @CopyCopter     = require('copycopter')(@env.copycopter)
+  @H              = require('lib/helpers')
+  @Swerve         = require('swerve')
   @Swerve.setEnv(options.env)
 
 module.exports = window.PortalApp = PortalApp

@@ -19,7 +19,6 @@
           env:           'test',
           current_user:  { id: '1230' },
           assets_version: null,
-          show_welcome_modal: true,
           social_media_post_character_limit: 100
         };
 
@@ -34,10 +33,6 @@
          (value == 'null')  ? value = null  : null ;
          params[key] = value;
        });
-
-       if ( params.hideModal ){
-         options.show_welcome_modal = false
-       };
 
         exports.portal_app = new Portal(options);
       });

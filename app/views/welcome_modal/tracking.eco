@@ -1,3 +1,0 @@
-<div class='confirm-tracking-pixel'>
-  <%- PortalApp.CopyCopter.t('welcome_modal.confirm_tracking_pixel', { defaultValue: "tracking-pixel" }) %>
-</div>
