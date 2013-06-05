@@ -1,6 +1,6 @@
-Spine     = require 'spine'
-Brand     = require 'models/brand'
-Tipsyable = require 'lib/tipsyable'
+Spine   = require 'spine'
+Brand   = require 'models/brand'
+Tooltip = require 'lib/tooltip'
 
 class BrandsController extends Spine.Controller
   attributes:
@@ -39,7 +39,7 @@ class BrandsController extends Spine.Controller
         disabled: true
 
     @renderBrandsLists(false)
-    Tipsyable.tipsy(gravity: 'n')
+    Tooltip.tooltip(placement: 'bottom')
 
   renderBrandsLists: (animate) =>
     @renderBrandsList('my', animate)

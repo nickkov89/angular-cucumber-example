@@ -1,7 +1,7 @@
 <div><i class="icon-ok-circle status-icon"></i></div>
 <p class="status-text">
   In good standing
-  <i class="icon-question-sign status-help tipsyable" data-tooltip-id="status-help-text" data-gravity='ne'></i>
+  <i class="icon-question-sign status-help tooltipped" data-tooltip-id="status-help-text" data-placement='bottom'></i>
 </p>
 <div id="status-help-text" style="display:none">
   <%- PortalApp.CopyCopter.t('status_tooltip.flag_0', { defaultValue: 'You have 0 flags. You receive flags for inappropriate submissions for Crowdtap actions.' }) %>

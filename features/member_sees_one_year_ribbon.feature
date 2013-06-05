@@ -7,7 +7,7 @@ Feature: Member sees stats plate
     And I am on the portal page
     Then the one year ribbon should be visible
     When I hover over the one year ribbon
-    Then I should see a tipsy tooltip containing "Thanks for being a member for a year!"
+    Then I should see a tooltip containing "Thanks for being a member for a year!"
 
   Scenario: Member does not see one year ribbon
     Given I just joined crowdtap

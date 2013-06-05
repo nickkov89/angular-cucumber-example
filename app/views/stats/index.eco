@@ -28,7 +28,7 @@
   </div>
   <div class='row'>
     <div class='span1'>
-      <img style='display:none;' class='one-year-ribbon tipsyable' data-tooltip-id='ribbon-tooltip' data-gravity='w' src="<%= PortalApp.H.assets_path('images/ribbon.png') %>">
+      <img style='display:none;' class='one-year-ribbon tooltipped' data-tooltip-id='ribbon-tooltip' data-placement='right' src="<%= PortalApp.H.assets_path('images/ribbon.png') %>">
     </div>
     <div id='ribbon-tooltip' style='display:none;'>
       <%- PortalApp.CopyCopter.t('stats.one_year_ribbon_text', { defaultValue: 'Thanks for being a member for a year!' }) %>

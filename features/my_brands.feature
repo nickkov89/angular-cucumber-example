@@ -43,8 +43,8 @@ Feature: Member sees My Brands section
       | 12345 | Steak Shack | steak-shack | 15          | 10                  | 5                |
     And I am on the portal page
     When I hover over the new actions count badge for "steak-shack"
-    Then I should see a tipsy tooltip containing "New"
+    Then I should see a tooltip containing "New"
     When I hover over the in-progress actions count badge for "steak-shack"
-    Then I should see a tipsy tooltip containing "In progress"
+    Then I should see a tooltip containing "In progress"
     When I hover over the expiring actions count badge for "steak-shack"
-    Then I should see a tipsy tooltip containing "Expiring"
+    Then I should see a tooltip containing "Expiring"

@@ -1,7 +1,7 @@
 <div><i class="icon-warning-sign status-icon"></i></div>
 <p class="status-text">
   In good standing
-  <i class="icon-question-sign status-help tipsyable" data-tooltip-id="status-help-text" data-gravity='ne'></i>
+  <i class="icon-question-sign status-help tooltipped" data-tooltip-id="status-help-text" data-gravity='bottom'></i>
 </p>
 <div id="status-help-text" style="display:none">
   <%- PortalApp.CopyCopter.t('status_tooltip.flag_2', { defaultValue: 'You have 2 flags. If you receive any more, you will be banned from the system.' }) %>

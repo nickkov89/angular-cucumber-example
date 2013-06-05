@@ -199,19 +199,19 @@ sharedSteps = module.exports = ->
   @Then /^I wait (\d+) seconds?$/, (count, next) ->
     @browser.wait 1000 * parseInt(count), next
 
-  @Then /^the tipsy tooltip should not be visible$/, (next) ->
-    tipsy_element = @$(".tipsy .tipsy-w")
-    tipsy_element.length.should.eql 0, "tipsy element should not be visible"
+  @Then /^the tooltip should not be visible$/, (next) ->
+    tooltip_element = @$(".tooltip")
+    tooltip_element.length.should.eql 0, "tooltip element should not be visible"
     next()
 
-  @Then /^I should see a tipsy tooltip containing "([^"]*)"$/, (text, next) ->
-    tipsy_element = @$(".tipsy:contains(#{text})")
-    tipsy_element.length.should.eql 1, "tipsy element should be visible with text #{text}"
+  @Then /^I should see a tooltip containing "([^"]*)"$/, (text, next) ->
+    tooltip_element = @$(".tooltip:contains(#{text})")
+    tooltip_element.length.should.eql 1, "tooltip element should be visible with text #{text}"
     next()
 
-  @Then /^I should see (\d+) tipsy tooltips containing "([^"]*)"$/, (length,text,next) ->
-    tipsy_elements = @$(".tipsy:contains(#{text})")
-    tipsy_elements.length.should.eql parseInt(length), "tipsy element(s) should be visible with text #{text}"
+  @Then /^I should see (\d+) tooltips containing "([^"]*)"$/, (length,text,next) ->
+    tooltip_elements = @$(".tooltip:contains(#{text})")
+    tooltip_elements.length.should.eql parseInt(length), "tooltip element(s) should be visible with text #{text}"
     next()
 
   @When /^I fill in (.+) with "([^"]*)"$/, (namedElement, text, next) ->

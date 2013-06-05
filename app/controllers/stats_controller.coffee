@@ -1,6 +1,6 @@
-Spine     = require 'spine'
-Tipsyable = require 'lib/tipsyable'
-Me        = require 'models/me'
+Spine   = require 'spine'
+Tooltip = require 'lib/tooltip'
+Me      = require 'models/me'
 
 class StatsController extends Spine.Controller
   className: 'stats'
@@ -38,6 +38,6 @@ class StatsController extends Spine.Controller
 
       @ribbon.toggle(created_at.isBefore(one_year_ago) )
 
-      Tipsyable.tipsy()
+      Tooltip.tooltip()
 
 module.exports = StatsController
