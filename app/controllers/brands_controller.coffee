@@ -18,15 +18,15 @@ class BrandsController extends Spine.Controller
     '#new-brands .brands-count':           'newBrandsCount'
     '#new-brands .actions-count':          'newBrandsActionsCount'
 
-  events:
-    'click #hide-empty-brands':  'renderBrandsLists'
-
   constructor: ->
     super
     @html require('views/brands')
-    Brand.bind 'refresh', =>
-      @update()
-      Tipsyable.tipsy(gravity: 'n')
+    Brand.bind 'refresh', @update
+
+    @hideBrandsCheckbox.one 'change', =>
+      Brand.fetch(data: 'all=true')
+
+      @hideBrandsCheckbox.bind 'change', @renderBrandsLists
 
     Spine.bind 'member:saved', ->
       Brand.fetch()
@@ -39,6 +39,7 @@ class BrandsController extends Spine.Controller
         disabled: true
 
     @renderBrandsLists(false)
+    Tipsyable.tipsy(gravity: 'n')
 
   renderBrandsLists: (animate) =>
     @renderBrandsList('my', animate)
