@@ -16,3 +16,14 @@
 .ie body {
   padding-top: 0;
 }
+
+// Problem:
+// IE 8 and below do not support the last-of-type psuedo selector.
+//
+// Hack:
+// Remove border-right dividers from action notifications to prevent
+// the errant, final border from appearing.
+
+.ie8 #portal .brand-box .actions-count {
+  border-right: none;
+}
