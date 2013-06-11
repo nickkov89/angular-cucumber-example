@@ -23,7 +23,6 @@
     "hem": {
       "version": "0.1.9",
       "from": "hem@0.1.9",
-      "resolved": "https://registry.npmjs.org/hem/-/hem-0.1.9.tgz",
       "dependencies": {
         "eco": {
           "version": "1.1.0-rc-3",
@@ -71,18 +70,15 @@
           "dependencies": {
             "cssom": {
               "version": "0.2.1",
-              "from": "cssom@0.2.1",
-              "resolved": "https://registry.npmjs.org/cssom/-/cssom-0.2.1.tgz"
+              "from": "cssom@0.2.1"
             },
             "growl": {
               "version": "1.1.0",
-              "from": "growl@1.1.0",
-              "resolved": "https://registry.npmjs.org/growl/-/growl-1.1.0.tgz"
+              "from": "growl@1.1.0"
             },
             "mkdirp": {
               "version": "0.0.7",
-              "from": "mkdirp@0.0.7",
-              "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.0.7.tgz"
+              "from": "mkdirp@0.0.7"
             }
           }
         },
@@ -97,7 +93,6 @@
         "strata": {
           "version": "0.15.1",
           "from": "strata@0.15.1",
-          "resolved": "https://registry.npmjs.org/strata/-/strata-0.15.1.tgz",
           "dependencies": {
             "usererror": {
               "version": "1.0.2",
@@ -204,13 +199,12 @@
       }
     },
     "parachute": {
-      "version": "0.0.1-alpha.3",
-      "from": "parachute@0.0.1-alpha.3",
+      "version": "0.0.1-alpha.4",
+      "from": "parachute@latest",
       "dependencies": {
         "colors": {
           "version": "0.6.0-1",
-          "from": "colors@0.6.0-1",
-          "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.0-1.tgz"
+          "from": "colors@0.6.0-1"
         },
         "gift": {
           "version": "0.0.5",
@@ -260,11 +254,13 @@
       "dependencies": {
         "gherkin": {
           "version": "2.11.3",
-          "from": "gherkin@2.11.3"
+          "from": "gherkin@2.11.3",
+          "resolved": "https://registry.npmjs.org/gherkin/-/gherkin-2.11.3.tgz"
         },
         "jasmine-node": {
           "version": "1.0.26",
           "from": "jasmine-node@1.0.26",
+          "resolved": "https://registry.npmjs.org/jasmine-node/-/jasmine-node-1.0.26.tgz",
           "dependencies": {
             "jasmine-reporters": {
               "version": "0.2.1",
@@ -290,7 +286,8 @@
             },
             "formidable": {
               "version": "1.0.9",
-              "from": "formidable@1.0.9"
+              "from": "formidable@1.0.9",
+              "resolved": "https://registry.npmjs.org/formidable/-/formidable-1.0.9.tgz"
             },
             "crc": {
               "version": "0.2.0",
@@ -309,6 +306,7 @@
         "browserify": {
           "version": "1.15.5",
           "from": "browserify@1.15.5",
+          "resolved": "https://registry.npmjs.org/browserify/-/browserify-1.15.5.tgz",
           "dependencies": {
             "detective": {
               "version": "0.2.1",
@@ -481,7 +479,7 @@
           "from": "tough-cookie@~0.9.12",
           "dependencies": {
             "punycode": {
-              "version": "1.2.1",
+              "version": "1.2.2",
               "from": "punycode@>=0.2.0"
             }
           }
@@ -509,6 +507,7 @@
     "jasmine-node": {
       "version": "1.4.0",
       "from": "jasmine-node@1.4.0",
+      "resolved": "https://registry.npmjs.org/jasmine-node/-/jasmine-node-1.4.0.tgz",
       "dependencies": {
         "jasmine-reporters": {
           "version": "0.2.1",
@@ -683,7 +682,7 @@
                   }
                 },
                 "async": {
-                  "version": "0.2.8",
+                  "version": "0.2.9",
                   "from": "async@~0.2.7"
                 }
               }

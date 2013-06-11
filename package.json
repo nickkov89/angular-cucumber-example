@@ -20,7 +20,7 @@
     "less":           "1.3.3",
     "forgery":        "0.0.3",
     "nock":           "0.16.0",
-    "parachute":      "0.0.1-alpha.3",
+    "parachute":      "latest",
     "should":         "1.2.2",
     "strata":         "0.20.0",
     "zombie":         "0.13.4"
