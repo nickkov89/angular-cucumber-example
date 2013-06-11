@@ -10,3 +10,4 @@ public/application.js
 public/assets.shared*
 tags
 node_modules
+css/shared
