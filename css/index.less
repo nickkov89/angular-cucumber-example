@@ -1,20 +1,25 @@
-// Custom boostrap importer.
-@import "bootstrap/variables";
-@import "lib/bootstrap/less/mixins";
-
 // Shared
+// ------------------------------
+
 @import "shared/mixins";
 @import "shared/variables";
+@import "shared/bootstrap/mixins";
+@import "shared/bootstrap/variables";
 
 // Base
+// ------------------------------
 @import "base/animations";
 @import "base/modules";
 @import "base/variables";
 
 // Components
+// ------------------------------
+
 @import "components/scaffolding";
 
 // Scoped components
+// ------------------------------
+
 #portal {
   @import "components/brands";
   @import "components/footer";
@@ -24,4 +29,6 @@
 }
 
 // Shameful hacks
+// ------------------------------
+
 @import "components/shame";
