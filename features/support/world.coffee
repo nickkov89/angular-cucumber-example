@@ -11,6 +11,7 @@ should      = require 'should'
 selectors   = require './selectors'
 recorder    = require './recorder'
 _           = require 'underscore'
+sinon       = require 'sinon'
 
 # Require the factories
 require '../../spec/factories'
@@ -28,11 +29,12 @@ Browser.debug = true if process.env.DEBUG == 'true'
 
 class World
   constructor: (callback) ->
-    @browser  = new Browser()
-    @recorder = recorder
-    @_        = _
-    @nock     = nock(Browser.site, { allowUnmocked: true })
-                #.log(console.log)
+    @browser                 = new Browser()
+    @recorder                = recorder
+    @_                       = _
+    @nock                    = nock(Browser.site, { allowUnmocked: true })#.log(console.log)
+    @browser.window.mixpanel = { track: -> }
+    @mixpanel                = sinon.stub(@browser.window.mixpanel, "track", -> true)
 
     nock('http://copycopter.example.com')
       .persist()

@@ -57,3 +57,13 @@ Feature: Member sees New Brands section
     Then I should see a tooltip containing "In progress"
     When I hover over the expiring actions count badge for "steak-shack"
     Then I should see a tooltip containing "Expiring"
+
+  Scenario: Brand visit event is tracked in Mixpanel, when the member clicks on a brand box
+    Given the brands API request returns the following:
+      | id    | name       | slug       | logo      | header_image_url | actions_count | actions_new | crowd_participant |
+      | 12345 | Tres Toros | tres-toros | foo-1.jpg | bar-1.jpg        | 15            | 15          | false             |
+    And I am on the portal page
+    When I click the "tres-toros" brand box within the New Brands section
+    Then I should have made a request to the mixpanel API to track the "Brand Visit" event with params:
+      | internal_referrer |
+      | Portal            |

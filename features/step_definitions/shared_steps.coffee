@@ -321,3 +321,10 @@ sharedSteps = module.exports = ->
    @When /^the "([^"]*)" event is triggred$/, (eventName, next) ->
      @browser.window.Spine.trigger(eventName)
      @browser.wait next
+
+  @Then /^I should have made a request to the mixpanel API to track the "([^"]*)" event(?: with params:)$/, (event_name, table, next) ->
+    params = table.hashes()[0]
+
+    mixpanel = @mixpanel.withArgs(event_name, params)
+    mixpanel.calledOnce.should.eql true
+    next()

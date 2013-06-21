@@ -18,6 +18,9 @@ class BrandsController extends Spine.Controller
     '#new-brands .brands-count':           'newBrandsCount'
     '#new-brands .actions-count':          'newBrandsActionsCount'
 
+  events:
+    'click a.brand-box': 'trackBrandVisit'
+
   constructor: ->
     super
     @html require('views/brands')
@@ -66,5 +69,8 @@ class BrandsController extends Spine.Controller
       grid.html require("views/brands/#{type}_brands_zero_actions") unless Brand.totalActions(properName)
 
     grid.html require("views/brands/#{type}_brands_zero_state") if !brands.length
+
+  trackBrandVisit: (event) ->
+    mixpanel.track('Brand Visit', { internal_referrer: 'Portal' })
 
 module.exports = BrandsController

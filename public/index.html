@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8" media="screen">
 
     <script type="text/javascript" charset="utf-8">
+      window.mixpanel = (typeof mixpanel !== 'undefined') && mixpanel || { track: function(){ return true; } }
+    </script>
+
+    <script type="text/javascript" charset="utf-8">
       var exports = this;
       $(function(){
         var Portal = require("portal");
