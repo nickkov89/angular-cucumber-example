@@ -1,0 +1,11 @@
+{
+  "name": "angular-cucumber-example",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "cucumber": "~0.3.1",
+    "protractor": "~0.6.1",
+    "grunt": "~0.4.1",
+    "grunt-contrib-connect": "~0.3.0"
+  }
+}
