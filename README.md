@@ -1,6 +1,6 @@
 ## Angular Cucumber Example
 
-This is a working example of running Angular E2E tests using Cucumber, Protractor, and WebDriverJS.
+This is an *almost* working example of running Angular E2E tests using [Cucumber.js](https://github.com/cucumber/cucumber-js), [Protractor](https://github.com/angular/protractor), and [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs).
 
 ### Getting Started
 
@@ -17,7 +17,7 @@ This is a working example of running Angular E2E tests using Cucumber, Protracto
 
 1. Start the selenium server
 
-        java -jar selenium/selenium-server-standalone-2.33.0.jar -Dwebdriver.chrome.driver=./selenium/chromedriver
+        grunt selenium
 
 2. Run the cucumber tests
 
@@ -25,6 +25,7 @@ This is a working example of running Angular E2E tests using Cucumber, Protracto
 
 ### Resources
 
+- [Cucumber.js README](https://github.com/cucumber/cucumber-js)
 - [Protractor README](https://github.com/angular/protractor)
 - [WebDriverJS Guide](https://code.google.com/p/selenium/wiki/WebDriverJs)
 - [WebDriverJS WebDriver API](https://code.google.com/p/selenium/source/browse/javascript/webdriver/webdriver.js)
@@ -33,5 +34,4 @@ This is a working example of running Angular E2E tests using Cucumber, Protracto
 ### TODO
 
 - Quit driver after running all the cucumber tests. Can easily be added once the [afterAll hook is added to cucumber.js](https://github.com/cucumber/cucumber-js/issues/97)
-- Start the selenium server on the Grunt task
 - Invoke a callback after `ptor.get` so that visiting a page can be a cucumber step. This seems to require changes in protractor so that `ptor.get` returns a promise, which selenium-webdriver's `webdriver.get` already does.
