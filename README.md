@@ -35,3 +35,8 @@ This is an *almost* working example of running Angular E2E tests using [Cucumber
 
 - Quit driver after running all the cucumber tests. Can easily be added once the [afterAll hook is added to cucumber.js](https://github.com/cucumber/cucumber-js/issues/97)
 - Invoke a callback after `ptor.get` so that visiting a page can be a cucumber step. This seems to require changes in protractor so that `ptor.get` returns a promise, which selenium-webdriver's `webdriver.get` already does.
+
+### Questions to figure out
+
+- Why does omitting `usingServer` allow running tests on Chrome without having the selenium server running?
+- Saving `world.coffee` triggers some actions on the selenium server. Assuming there is some file watching mechanism in place, what files are watched and which actions are taken?
