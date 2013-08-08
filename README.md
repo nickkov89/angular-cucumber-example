@@ -9,17 +9,21 @@ This is a working example of running Angular E2E tests using [Cucumber.js](https
         npm install
         bower install
 
-2. Start the server
+2. Start the application server
 
         grunt server
 
 ### Running Tests
 
-1. Start the selenium server
+1. Start the application server
+
+        grunt server
+
+2. Start the selenium server
 
         grunt selenium
 
-2. Run the cucumber tests
+3. Run the cucumber tests
 
         grunt test
 
