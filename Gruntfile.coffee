@@ -8,6 +8,7 @@ module.exports = (grunt) ->
     env:
       test:
         PATH: "#{seleniumPath}:process.env.PATH"
+
     connect:
       server:
         options:
@@ -18,12 +19,23 @@ module.exports = (grunt) ->
     cucumberjs:
       files: 'features/*.feature'
 
+    shell:
+      selenium:
+        command: 'java -jar selenium/selenium-server-standalone-2.33.0.jar -Dwebdriver.chrome.driver=./selenium/chromedriver'
+        options:
+          stdout: true
+
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-cucumber'
   grunt.loadNpmTasks 'grunt-env'
+  grunt.loadNpmTasks 'grunt-shell'
 
   grunt.registerTask 'server', [
     'connect:server'
+  ]
+
+  grunt.registerTask 'selenium', [
+    'shell:selenium'
   ]
 
   grunt.registerTask 'test', [

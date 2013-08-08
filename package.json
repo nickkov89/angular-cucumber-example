@@ -9,7 +9,8 @@
     "grunt-contrib-connect": "~0.3.0",
     "grunt-cucumber": "~0.2.1",
     "selenium-webdriver": "~2.34.0",
-    "grunt-env": "~0.4.0"
+    "grunt-env": "~0.4.0",
+    "grunt-shell": "~0.3.1"
   },
   "scripts": {
     "postinstall": "./node_modules/protractor/bin/install_selenium_standalone"
