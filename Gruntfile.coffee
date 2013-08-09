@@ -21,7 +21,7 @@ module.exports = (grunt) ->
 
     shell:
       selenium:
-        command: 'java -jar selenium/selenium-server-standalone-2.33.0.jar -Dwebdriver.chrome.driver=./selenium/chromedriver'
+        command: 'java -jar selenium/selenium-server-standalone-*.jar -Dwebdriver.chrome.driver=./selenium/chromedriver'
         options:
           stdout: true
 
