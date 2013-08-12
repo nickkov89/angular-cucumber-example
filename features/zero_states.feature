@@ -2,6 +2,11 @@ Feature: Member sees various zero states
   As a member, depending on what actions are available to me
   I see appropriate zero states on the portal page
 
+  Background:
+    Given I am logged into crowdtap as:
+      | hide_empty_brands |
+      | true              |
+
   Scenario: New member sees intro zero state
     Given the API returns a successful response for GET requests to "/api/v2/brands" and responds with:
     """

@@ -7,7 +7,8 @@ class Me extends Spine.Model
                     'charity_id', 'shipping_phone', 'residence_city', 'residence_state', 'shipping_city',
                     'shipping_state', 'shipping_address1', 'shipping_address2', 'shipping_zip_code'
                     'hide_location', 'has_linked_twitter', 'blog_url',
-                    'notify_of_new_actions_and_awards', 'notify_of_new_brands'
+                    'notify_of_new_actions_and_awards', 'notify_of_new_brands',
+                    'hide_empty_brands'
 
   @extend Spine.Model.Ajax
   @extend Resource

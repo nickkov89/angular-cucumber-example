@@ -1,5 +1,6 @@
 Spine   = require 'spine'
 Brand   = require 'models/brand'
+Me      = require 'models/me'
 Tooltip = require 'lib/tooltip'
 
 class BrandsController extends Spine.Controller
@@ -19,20 +20,20 @@ class BrandsController extends Spine.Controller
     '#new-brands .actions-count':          'newBrandsActionsCount'
 
   events:
-    'click a.brand-box': 'trackBrandVisit'
+    'click a.brand-box':         'trackBrandVisit'
+    'change #hide-empty-brands': 'changeHideEmptyBrands'
 
   constructor: ->
     super
     @html require('views/brands')
-    Brand.bind 'refresh', @update
 
-    @hideBrandsCheckbox.one 'change', =>
+    Me.fetch()
+    Me.one 'refresh', =>
       Brand.fetch(data: 'all=true')
-
-      @hideBrandsCheckbox.bind 'change', @renderBrandsLists
-
-    Spine.bind 'member:saved', ->
-      Brand.fetch()
+      Brand.one 'refresh', =>
+        @html require('views/brands')
+        @update()
+        Brand.bind 'refresh', @update
 
   update: =>
     if Brand.totalActions() == 0 && Brand.myBrands().length > 0
@@ -40,6 +41,8 @@ class BrandsController extends Spine.Controller
       @hideBrandsCheckbox.attr
         checked:  false
         disabled: true
+    else
+      @hideBrandsCheckbox.attr('checked', Me.first().hide_empty_brands)
 
     @renderBrandsLists(false)
     Tooltip.tooltip(placement: 'bottom')
@@ -48,6 +51,12 @@ class BrandsController extends Spine.Controller
     @renderBrandsList('my', animate)
     @renderBrandsList('new', animate)
 
+  changeHideEmptyBrands: =>
+    me = Me.first()
+    me.hide_empty_brands = @hideBrandsCheckbox.is(':checked')
+    me.save()
+    @renderBrandsLists()
+
   renderBrandsList: (type, animate) =>
     properName = "#{type}Brands"
     grid       = @["#{properName}Grid"]
@@ -55,20 +64,26 @@ class BrandsController extends Spine.Controller
 
     grid.html require("views/brands/brand_box")(brands)
 
-    @["#{properName}Count"].text brands.length
-    @["#{properName}ActionsCount"].text Brand.totalActions(properName)
+    @["#{properName}Count"].text(brands.length || '-')
+    @["#{properName}ActionsCount"].text(Brand.totalActions(properName) || '-')
     @refreshElements()
 
-    if type == 'my' && @hideBrandsCheckbox.is(':checked')
-      remove = => @myBrandsEmpty.remove()
-      if animate
-        @myBrandsEmpty.addClass('bounceOut')
-        setTimeout remove, 180
-      else
-        remove()
-      grid.html require("views/brands/#{type}_brands_zero_actions") unless Brand.totalActions(properName)
+    if type == 'my'
+      if brands.length
+        if @hideBrandsCheckbox.is(':checked')
+          remove = => @myBrandsEmpty.remove()
+          if animate
+            @myBrandsEmpty.addClass('bounceOut')
+            setTimeout remove, 180
+          else
+            remove()
 
-    grid.html require("views/brands/#{type}_brands_zero_state") if !brands.length
+          grid.html require("views/brands/#{type}_brands_zero_actions") unless Brand.totalActions(properName)
+      else if @hideBrandsCheckbox.is(':checked')
+        grid.html require("views/brands/#{type}_brands_zero_state")
+
+    else
+      grid.html require("views/brands/#{type}_brands_zero_state") if !brands.length
 
   trackBrandVisit: (event) ->
     mixpanel.track('Brand Visit', { internal_referrer: 'Portal' })
