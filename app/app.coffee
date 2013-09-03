@@ -1,2 +1,1 @@
-MainCtrl = ($scope) ->
-  $scope.name = 'asdjklaslkjdsDK'
+window.app = angular.module 'crowdtap.portal', []

@@ -14,7 +14,7 @@ module.exports = (grunt) ->
         options:
           keepalive: true
           port: 9001
-          base: 'app'
+          base: 'public'
 
     cucumberjs:
       files: 'features/*.feature'
@@ -26,15 +26,15 @@ module.exports = (grunt) ->
           stdout: true
 
     watch:
-      files: ['app/*.coffee']
+      files: ['app/**/*.coffee']
       tasks: 'coffee'
 
     coffee:
       compile:
         options:
           bare: true
-        src: ['app/*.coffee']
-        dest: 'app/index.js'
+        src: ['app/**/*.coffee']
+        dest: 'public/application.js'
         ext: '.js'
 
     concurrent:

@@ -1,5 +1,5 @@
 var MainCtrl;
 
 MainCtrl = function($scope) {
-  return $scope.name = 'asdjklaslkjdsDK';
+  return $scope.name = 'DK';
 };
