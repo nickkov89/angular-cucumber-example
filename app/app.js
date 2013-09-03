@@ -1,3 +1,3 @@
 function MainCtrl($scope) {
-  $scope.name = 'DK';
+  $scope.name = 'NK';
 }

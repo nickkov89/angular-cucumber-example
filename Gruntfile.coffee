@@ -25,18 +25,31 @@ module.exports = (grunt) ->
         options:
           stdout: true
 
+    watch:
+      files: ['app/*.coffee']
+      tasks: 'coffee'
+
+    coffee:
+      compile:
+        options:
+          bare: true
+        src: ['app/*.coffee']
+        dest: 'app/index.js'
+        ext: '.js'
+
+    concurrent:
+      target:
+        tasks: ['connect', 'watch', 'shell:selenium']
+
   grunt.loadNpmTasks 'grunt-contrib-connect'
+  grunt.loadNpmTasks 'grunt-concurrent'
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-cucumber'
   grunt.loadNpmTasks 'grunt-env'
   grunt.loadNpmTasks 'grunt-shell'
 
-  grunt.registerTask 'server', [
-    'connect:server'
-  ]
-
-  grunt.registerTask 'selenium', [
-    'shell:selenium'
-  ]
+  grunt.registerTask 'default', ['concurrent:target']
 
   grunt.registerTask 'test', [
     'env:test'
