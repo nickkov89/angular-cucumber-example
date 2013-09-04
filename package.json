@@ -4,12 +4,15 @@
   "dependencies": {
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-concurrent": "~0.3.1"
+    "grunt-concurrent": "~0.3.1",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-less": "~0.7.0"
   },
   "devDependencies": {
     "cucumber": "~0.3.1",
     "protractor": "git+https://github.com/angular/protractor.git",
     "grunt": "~0.4.1",
+    "parachute": "latest",
     "grunt-contrib-connect": "~0.3.0",
     "grunt-cucumber": "~0.2.1",
     "selenium-webdriver": "~2.34.0",
@@ -17,6 +20,6 @@
     "grunt-shell": "~0.3.1"
   },
   "scripts": {
-    "postinstall": "./node_modules/protractor/bin/install_selenium_standalone"
+    "postinstall": "./node_modules/protractor/bin/install_selenium_standalone && ./node_modules/.bin/parachute install --update"
   }
 }

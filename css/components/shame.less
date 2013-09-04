@@ -1,0 +1,29 @@
+// Shame.less
+// 
+// A misleadingly named file for all the hacks we shouldn't write, but do anyway
+// for the sake of quick development and sanity.
+//
+// Inspired by: http://csswizardry.com/2013/04/shame-css/
+// ------------------------------------------------------------------------------
+
+// Problem:
+// The main top navbar in IE is not set to position: fixed, so the added padding
+// on the body is unnecessary and adds whitespace to the top of the page.
+//
+// Hack:
+// Remove top padding on body only in IE.
+
+.ie body {
+  padding-top: 0;
+}
+
+// Problem:
+// IE 8 and below do not support the last-of-type psuedo selector.
+//
+// Hack:
+// Remove border-right dividers from action notifications to prevent
+// the errant, final border from appearing.
+
+.ie8 #portal .brand-box .actions-count {
+  border-right: none;
+}
