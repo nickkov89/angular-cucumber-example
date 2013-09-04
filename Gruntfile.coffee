@@ -53,13 +53,14 @@ module.exports = (grunt) ->
       compile:
         options:
           bare: true
-        src: ['app/**/*.coffee']
-        dest: 'public/application.js'
-        ext: '.js'
+        files:
+          'public/application.js': ['app/**/*.coffee'],
+          'spec/tests.js': ['spec/*_spec.coffee']
 
     concurrent:
       target:
         tasks: [
+          'coffee'
           'server'
           'watch'
           'shell:selenium'
