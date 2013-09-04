@@ -7,8 +7,19 @@
     <script src="/application.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="/assets.shared.css" type="text/css" charset="utf-8" media="screen">
     <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8" media="screen">
+
+    <script type="text/javascript" charset="utf-8">
+      window.mixpanel = (typeof mixpanel !== 'undefined') && mixpanel || { track: function(){ return true; } }
+    </script>
   </head>
+
   <body>
-    <div ng-controller="HeaderCtrl"></div>
+    <header ng-controller="HeaderCtrl">
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner"></div>
+      </div>
+    </header>
+    <div id="portal"></div>
+    <!--<div ng-controller="HeaderCtrl"></div>-->
   </body>
 </html>

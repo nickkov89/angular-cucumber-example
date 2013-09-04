@@ -1,2 +1,2 @@
 HeaderCtrl = ($scope) ->
-  console.log($scope)
+  console.log("OK")

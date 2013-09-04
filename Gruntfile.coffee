@@ -9,13 +9,6 @@ module.exports = (grunt) ->
       test:
         PATH: "#{seleniumPath}:process.env.PATH"
 
-    connect:
-      server:
-        options:
-          keepalive: true
-          port: 9001
-          base: 'public'
-
     cucumberjs:
       files: 'features/*.feature'
 
@@ -30,6 +23,14 @@ module.exports = (grunt) ->
             dest: 'public/application.css'
           }
         ]
+
+    express:
+      custom:
+        options:
+          hostname: 'localhost'
+          port: 9001
+          bases: 'public'
+          server: path.resolve('./server')
 
     copy:
       main:
@@ -58,19 +59,28 @@ module.exports = (grunt) ->
 
     concurrent:
       target:
-        tasks: ['connect', 'watch', 'shell:selenium', 'less', 'copy']
+        tasks: [
+          'server'
+          'watch'
+          'shell:selenium'
+          'less'
+          'copy'
+        ]
 
   grunt.loadNpmTasks 'grunt-contrib-connect'
-  grunt.loadNpmTasks 'grunt-concurrent'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-less'
+  grunt.loadNpmTasks 'grunt-express'
+  grunt.loadNpmTasks 'grunt-concurrent'
   grunt.loadNpmTasks 'grunt-cucumber'
   grunt.loadNpmTasks 'grunt-env'
   grunt.loadNpmTasks 'grunt-shell'
 
   grunt.registerTask 'default', ['concurrent:target']
+
+  grunt.registerTask 'server', ['express', 'express-keepalive']
 
   grunt.registerTask 'test', [
     'env:test'
