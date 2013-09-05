@@ -19,7 +19,7 @@ module.exports = (grunt) ->
           yuicompress: true
         files: [
           {
-            src:  'css/index.less'
+            src:  'public/css/index.less'
             dest: 'public/application.css'
           }
         ]
@@ -36,7 +36,8 @@ module.exports = (grunt) ->
       main:
         files: [
           { expand: true, cwd: 'vendor/jquery/', src: ['**'], dest: 'public/vendor/jquery' },
-          { expand: true, cwd: 'vendor/angular/', src: ['**'], dest: 'public/vendor/angular' }
+          { expand: true, cwd: 'vendor/angular/', src: ['**'], dest: 'public/vendor/angular' },
+          { expand: true, cwd: 'vendor/angular-resource/', src: ['**'], dest: 'public/vendor/angular-resource' }
         ]
 
     shell:
@@ -46,15 +47,19 @@ module.exports = (grunt) ->
           stdout: true
 
     watch:
-      files: ['app/**/*.coffee']
-      tasks: 'coffee'
+      coffee:
+        files: ['public/js/**/*.coffee', 'spec/*_spec.coffee']
+        tasks: 'coffee'
+      less:
+        files: ['public/css/**/*.less']
+        tasks: 'less'
 
     coffee:
       compile:
         options:
           bare: true
         files:
-          'public/application.js': ['app/**/*.coffee'],
+          'public/application.js': ['public/js/**/*.coffee'],
           'spec/tests.js': ['spec/*_spec.coffee']
 
     concurrent:
