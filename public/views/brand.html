@@ -1,0 +1,19 @@
+<a href="/" id="{{ brand.id }}" data-track="portal-brand-banner" class="brand-box span4 animated" data-action-count="{{ brand.action_count }}">
+  <div class="brand-header" style="background-image:url({{ brand.header_image_url }})"></div>
+  <div class="brand-meta">
+    <img src="{{ brand.logo }}" class="brand-logo">
+    <h5 class="brand-name">{{ brand.name }}</h5>
+    <span class="actions-count actions-count-new tooltipped" data-tooltip-id="action-count-tooltip-new" ng-hide="brand.actions_new == 0">
+      <i class="icon-certificate"></i>
+      {{ brand.actions_new }}
+    </span>
+    <span class="actions-count actions-count-in-progress tooltipped" data-tooltip-id="action-count-tooltip-in-progress" ng-hide="brand.actions_in_progress == 0">
+      <i class="icon-tasks"></i>
+      {{ brand.actions_in_progress }}
+    </span>
+    <span class="actions-count actions-count-expiring tooltipped" data-tooltip-id="action-count-tooltip-expiring" ng-hide="brand.expiring == 0" >
+      <i class="icon-time"></i>
+      {{ brand.actions_expiring }}
+    </span>
+  </div>
+</a>
