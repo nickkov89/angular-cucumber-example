@@ -1,4 +1,6 @@
 portal.controller 'BrandsCtrl', ($scope, Brand) ->
+  $scope.show = false
+
   $scope.brands = Brand.query ->
     $scope.brands.totalActions = ->
       total = 0

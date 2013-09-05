@@ -3,6 +3,7 @@ var portal;
 portal = angular.module('crowdtap.portal', ['ngResource']);
 
 portal.controller('BrandsCtrl', function($scope, Brand) {
+  $scope.show = false;
   return $scope.brands = Brand.query(function() {
     return $scope.brands.totalActions = function() {
       var brand, total, _i, _len, _ref;

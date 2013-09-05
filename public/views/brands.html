@@ -17,14 +17,14 @@
         </div>
         <div class="span4">
           <label for="hide-empty-brands">
-            <input type="checkbox" id="hide-empty-brands" checked="checked">
+            <input type="checkbox" id="hide-empty-brands" checked="checked" ng-click="show = !show">
             Only show brands with actions
           </label>
         </div>
       </div>
       <hr>
       <div class="row brands-grid">
-        <div ng-include="'views/brand.html'" ng-repeat="brand in brands"></div>
+        <div ng-include="'views/brand.html'" ng-repeat="brand in brands" ng-show="show || brand.actions_count > 0 "></div>
         <div class="min-height-placeholder"></div>
       </div>
     </div>
