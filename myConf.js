@@ -47,7 +47,7 @@ exports.config = {
   // and
   // https://code.google.com/p/selenium/source/browse/javascript/webdriver/capabilities.js
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'firefox'
   },
 
   // A base URL for your application under test. Calls to protractor.get()
@@ -69,6 +69,6 @@ exports.config = {
     // If true, include stack traces in failures.
     includeStackTrace: true,
     // Default time to wait in ms before a test fails.
-    defaultTimeoutInterval: 5000
+    defaultTimeoutInterval: 15000
   }
 };

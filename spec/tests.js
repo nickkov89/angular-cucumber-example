@@ -1,5 +1,5 @@
-describe("finding", function() {
+describe("homepage", function() {
   return it("should be true", function() {
-    return expect(true).toBe(true);
+    return console.log(portalDev);
   });
 });
