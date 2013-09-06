@@ -1,30 +1,45 @@
+Factory = require('rosie').Factory
+_       = require('underscore')
+require '../../spec/factories/index'
+
 module.exports = ->
   @World = require('../support/world.coffee').World
 
-  @Given /^I am on the homepage$/, (callback) ->
+  @Before (callback) ->
+    @server = @app.listen(9002)
+    callback()
+
+  @After (callback) ->
+    callback()
+
+  @Given /^the brands API request returns the following:$/, (table, callback) ->
+    brands = table.hashes()
+    brands_arr = []
     @app.get '/api/v2/brands', (req, res) ->
-      brands_arr = []
-      _(6).times ->
-        brands_arr.push Factory.build('Brand')
-      _(4).times ->
-        brands_arr.push Factory.build('Brand', { actions_count: 0, actions_new: 0, actions_expiring: 0, actions_in_progress: 0 })
+      for brand in brands
+        brands_arr.push Factory.build('Brand', brand)
       res.json brands_arr
-    @app.listen(9002)
+    callback()
+
+  @Given /^I am logged in as:$/, (table, callback) ->
+    me = table.hashes()[0]
+    @app.get '/api/v2/me', (req, res) ->
+      res.json Factory.build('Me', me)
+    callback()
+
+  @Given /^I am on the homepage$/, (callback) ->
+    @app.get '/api/v2/me', (req, res) ->
+      res.json Factory.build('Me')
+
     @browser.get('http://localhost:9002').then ->
       callback()
 
-  @When /^I change my name to "(.*)"$/, (name, callback) ->
-    el = @browser.findElement(@By.tagName 'input')
-    el.clear()
-    el.sendKeys(name).then ->
+  @Then /^I should see "(.*)" brands$/, (number, callback) ->
+    @browser.findElement(@By.className 'brand-name' ).getText().then (text) =>
+      @assert.equal text, number
       callback()
 
   @When /^I click the input box "(.*)"$/, (input, callback) ->
     el = @browser.findElement(@By.id input)
     el.click()
     callback()
-
-  @Then /^I should see my name as "(.*)"$/, (name, callback) ->
-    @browser.findElement(@By.tagName 'span').getText().then (text) =>
-      @assert.equal text, name
-      callback()

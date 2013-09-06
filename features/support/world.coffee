@@ -3,7 +3,6 @@ path = require 'path'
 express = require 'express'
 Factory = require('rosie').Factory
 require '../../spec/factories/index'
-_       = require('underscore')
 
 protractor = require 'protractor'
 webdriver = require 'selenium-webdriver'

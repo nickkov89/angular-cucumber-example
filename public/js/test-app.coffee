@@ -5,4 +5,4 @@ portalDev.run(($httpBackend) ->
   $httpBackend.whenGET('/api/v2/brands').respond(test)
   $httpBackend.whenGET('/api/v2/me').respond(test)
   $httpBackend.whenGET(/^views\//).passThrough()
-  )
+)
