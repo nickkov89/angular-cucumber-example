@@ -1,18 +1,31 @@
 Factory = require('rosie').Factory
 express = require 'express'
 _       = require('underscore')
+protractor = require 'protractor'
+webdriver = require 'selenium-webdriver'
 require '../../spec/factories/index'
 
 module.exports = ->
   @World = require('../support/world.coffee').World
 
   @Before (callback) ->
-    @server = @app.listen(9002)
-    callback()
+    driver = new webdriver.Builder().
+      usingServer('http://localhost:4444/wd/hub').
+      withCapabilities(webdriver.Capabilities.chrome()).
+      build()
+
+    ptor = protractor.wrapDriver driver
+
+    @browser = ptor
+    @browser.manage().timeouts().setScriptTimeout(10000)
+
+    @server = @app.listen 9002, ->
+      callback()
 
   @After (callback) ->
-    @server.close()
-    callback()
+    @browser.quit()
+    @server.close ->
+      callback()
 
   @Given /^the brands API request returns the following:$/, (table, callback) ->
     brands = table.hashes()
