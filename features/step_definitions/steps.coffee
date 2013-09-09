@@ -1,4 +1,5 @@
 Factory = require('rosie').Factory
+express = require 'express'
 _       = require('underscore')
 require '../../spec/factories/index'
 
@@ -29,18 +30,14 @@ module.exports = ->
     callback()
 
   @Given /^I am on the homepage$/, (callback) ->
-    @app.get '/api/v2/me', (req, res) ->
-      res.json Factory.build('Me')
-
     @browser.get('http://localhost:9002').then ->
       callback()
 
-  @Then /^I should see the "(.*)" brand box$/, (brand, callback) ->
-    @browser.findElement(@By.className 'brand-name' ).getText().then (text) =>
-      @assert.equal text, brand
+  @Then /^I should see (\d+) brand boxes$/, (number, callback) ->
+    @browser.findElements(@By.className 'brand-box' ).then (elements_arr) =>
+      @assert.equal elements_arr.length, number
       callback()
 
   @When /^I click the input box "(.*)"$/, (input, callback) ->
-    el = @browser.findElement(@By.id input)
-    el.click()
-    callback()
+    el = @browser.findElement(@By.id input).click().then ->
+      callback()

@@ -89,6 +89,8 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'server', ['express', 'express-keepalive']
 
+  grunt.registerTask 'test-server', ['shell:selenium']
+
   grunt.registerTask 'test', [
     'env:test'
     'cucumberjs'

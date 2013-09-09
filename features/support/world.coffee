@@ -9,7 +9,7 @@ webdriver = require 'selenium-webdriver'
 
 driver = new webdriver.Builder().
   usingServer('http://localhost:4444/wd/hub').
-  withCapabilities(webdriver.Capabilities.phantomjs()).
+  withCapabilities(webdriver.Capabilities.firefox()).
   build()
 
 ptor = protractor.wrapDriver driver
@@ -17,6 +17,7 @@ ptor = protractor.wrapDriver driver
 class World
   constructor: (callback) ->
     @browser = ptor
+    @browser.manage().timeouts().setScriptTimeout(10000)
     @By = protractor.By
     @assert = assert
     @app = express()
