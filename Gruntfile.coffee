@@ -15,7 +15,7 @@ module.exports = (grunt) ->
     less:
       production:
         options:
-          paths:       ['css']
+          paths:       ['public/css']
           yuicompress: true
         files: [
           {
@@ -37,7 +37,8 @@ module.exports = (grunt) ->
         files: [
           { expand: true, cwd: 'vendor/jquery/', src: ['**'], dest: 'public/vendor/jquery' },
           { expand: true, cwd: 'vendor/angular/', src: ['**'], dest: 'public/vendor/angular' },
-          { expand: true, cwd: 'vendor/angular-resource/', src: ['**'], dest: 'public/vendor/angular-resource' }
+          { expand: true, cwd: 'vendor/angular-resource/', src: ['**'], dest: 'public/vendor/angular-resource' },
+          { expand: true, cwd: 'vendor/angular-mocks/', src: ['**'], dest: 'public/vendor/angular-mocks' }
         ]
 
     shell:
@@ -87,6 +88,8 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', ['concurrent:target']
 
   grunt.registerTask 'server', ['express', 'express-keepalive']
+
+  grunt.registerTask 'test-server', ['shell:selenium']
 
   grunt.registerTask 'test', [
     'env:test'
