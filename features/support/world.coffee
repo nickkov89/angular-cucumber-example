@@ -11,7 +11,7 @@ class World
     @By = protractor.By
     @assert = assert
     @app = express()
-    @app.use express.static(path.join('/Users/nickk/dev/angular-cucumber-example/', 'public'))
+    @app.use express.static(path.join(process.cwd(), 'public'))
     callback()
 
 module.exports.World = World

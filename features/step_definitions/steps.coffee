@@ -11,7 +11,7 @@ module.exports = ->
   @Before (callback) ->
     driver = new webdriver.Builder().
       usingServer('http://localhost:4444/wd/hub').
-      withCapabilities(webdriver.Capabilities.chrome()).
+      withCapabilities(webdriver.Capabilities.firefox()).
       build()
 
     ptor = protractor.wrapDriver driver
