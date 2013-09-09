@@ -9,7 +9,7 @@ webdriver = require 'selenium-webdriver'
 
 driver = new webdriver.Builder().
   usingServer('http://localhost:4444/wd/hub').
-  withCapabilities(webdriver.Capabilities.firefox()).
+  withCapabilities(webdriver.Capabilities.phantomjs()).
   build()
 
 ptor = protractor.wrapDriver driver

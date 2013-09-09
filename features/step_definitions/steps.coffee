@@ -10,6 +10,7 @@ module.exports = ->
     callback()
 
   @After (callback) ->
+    @server.close()
     callback()
 
   @Given /^the brands API request returns the following:$/, (table, callback) ->
@@ -34,9 +35,9 @@ module.exports = ->
     @browser.get('http://localhost:9002').then ->
       callback()
 
-  @Then /^I should see "(.*)" brands$/, (number, callback) ->
+  @Then /^I should see the "(.*)" brand box$/, (brand, callback) ->
     @browser.findElement(@By.className 'brand-name' ).getText().then (text) =>
-      @assert.equal text, number
+      @assert.equal text, brand
       callback()
 
   @When /^I click the input box "(.*)"$/, (input, callback) ->
