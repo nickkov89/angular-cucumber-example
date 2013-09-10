@@ -1,3 +1,0 @@
-<div id="my-brands-zero-state" class="zero-state">
-  <h3><%- PortalApp.CopyCopter.t('my_brands.zero_actions.zero_brands', { defaultValue: "Welcome to Crowdtap! Get started by participating with your new brands below." }) %></h3>
-</div>

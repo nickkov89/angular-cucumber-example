@@ -1,4 +1,0 @@
-<div id="new-brands-zero-actions" class="zero-state">
-  <h3><%- PortalApp.CopyCopter.t('new_brands.zero_actions.heading', { defaultValue: "You've completed all available actions for new brands, good going!" }) %></h3>
-  <p><%- PortalApp.CopyCopter.t('new_brands.zero_actions.subtext', { defaultValue: "Check back for more actions later." }) %></p>
-</div>
