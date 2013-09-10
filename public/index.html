@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="crowdtap.portal">
+  <head>
+    <script src="/vendor/angular/angular.min.js"></script>
+    <script src="/vendor/angular-resource/angular-resource.min.js"></script>
+    <script src="/vendor/angular-mocks/angular-mocks.js"></script>
+    <script src="/vendor/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/assets.shared.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/application.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="/assets.shared.css" type="text/css" charset="utf-8" media="screen">
+    <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8" media="screen">
+
+    <script type="text/javascript" charset="utf-8">
+      window.mixpanel = (typeof mixpanel !== 'undefined') && mixpanel || { track: function(){ return true; } }
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner"></div>
+      </div>
+    </header>
+    <div id="portal" ng-include="'views/main.html'"></div>
+  </body>
+</html>

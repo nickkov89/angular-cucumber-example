@@ -1,36 +1,47 @@
-![PORTAL](http://i.imgur.com/gRhBIt8.jpg)
+## Angular Cucumber Example
 
----
+This is a working example of running Angular E2E tests using [Cucumber.js](https://github.com/cucumber/cucumber-js), [Protractor](https://github.com/angular/protractor), and [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs).
 
-## Crowdtap Portal
+### Getting Started
 
-_Hello, and welcome to the Crowdtap Brands Computer-Aided Enrichment Center._
+1. Install dependencies
 
-### Getting started
+        npm install
+        bower install
 
-Clone the repo and fire up your Portal:
+2. Start the application server
 
-* `npm install` to install all dependencies.
-* `coffee server.coffee` to run the server on `localhost:9295`.
+        grunt server
 
-__NOTE:__ If you can't seem to find `coffee` or any other npm module, you can find them under `node_modules/.bin/` under an application's root directory. You may want to add that to your `PATH`.
+### Running Tests
 
-### Running tests
+1. Start the application server
 
-* Run the entire test suite: `npm test`
-* Run features only: `npm run-script cucumber`
-* Run specs only: `npm run-script spec`
+        grunt server
 
-__NOTE:__ You can find all of the available scripts in `package.json` under the `scripts` key.
+2. Start the selenium server
 
-### Assets
+        grunt selenium
 
-CSS is organized as per our [styleguide](https://github.com/crowdtap/wiki/blob/master/pages/CSS_STYLEGUIDE.md) under `css/`.
-JavaScript libraries should be installed as npm modules, or if unavailable as a module, it should be copied into `public/` and added to `slug.json`.
-All other app-specific assets live in `public/crowdtap.portal/` as per our convention.
+3. Run the cucumber tests
 
-#### Shared assets
+        grunt test
 
-Shared assets are installed automatically after running `npm install`. You can update shared assets manually with `node_modules/.bin/parachute install --update`. To see a manifest of the shared assets, see [parachute.json](https://github.com/crowdtap/assets.shared/blob/master/parachute.json).
+### Resources
 
-For complete details on how shared assets works, see [assets.shared](https://github.com/crowdtap/assets.shared) and [parachute](https://github.com/crowdtap/parachute).
+- [Cucumber.js README](https://github.com/cucumber/cucumber-js)
+- [Protractor README](https://github.com/angular/protractor)
+- [WebDriverJS Guide](https://code.google.com/p/selenium/wiki/WebDriverJs)
+- [WebDriverJS WebDriver API](https://code.google.com/p/selenium/source/browse/javascript/webdriver/webdriver.js)
+- [WebDriverJS Locators API](https://code.google.com/p/selenium/source/browse/javascript/webdriver/locators.js)
+
+### TODO
+
+- Quit driver after running all the cucumber tests. Can easily be added once the [afterAll hook is added to cucumber.js](https://github.com/cucumber/cucumber-js/issues/97)
+
+### Questions
+
+These are questions that I need to figure out due to my lack of familiarity with WebDriverJS and Selenium.
+
+- Why does omitting `usingServer` allow running tests on Chrome without having the selenium server running?
+- Saving `world.coffee` triggers some actions on the selenium server. Assuming there is some file watching mechanism in place, what files are watched and which actions are taken?

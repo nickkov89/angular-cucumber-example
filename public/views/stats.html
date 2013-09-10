@@ -1,0 +1,43 @@
+<div class="stats">
+  <div class="container" ng-controller="MeCtrl">
+    <div class="row">
+      <div class="me-plate plate span4">
+        <div class="mug">
+          <img ng-src={{me.profile_photo_url}}>
+        </div>
+        <h3 class="name">{{ me.first_name }} {{ me.last_name | firstLetter }}</h3>
+        <p class="location">{{ me.residence_city }}, {{ me.residence_state }}</p>
+        <p><strong>Charity:</strong> <span class="charity">{{ me.charity }}</span></p>
+      </div>
+
+      <div class="status-plate plate span2" ng-switch on="me.flags_count">
+        <div ng-switch-when="0" ng-include="'views/status_flag_0.html'"></div>
+        <div ng-switch-when="1" ng-include="'views/status_flag_1.html'"></div>
+        <div ng-switch-when="2" ng-include="'views/status_flag_2.html'"></div>
+      </div>
+
+      <div class="stars-plate plate stat span2">
+        <div class="count stars-count">{{ me.stars_count }}</div>
+        <div class="count-label">Stars</div>
+      </div>
+
+      <div class="awards-plate plate stat span2">
+        <div class="count awards-count">{{ me.top_awards_count }}</div>
+        <div class="count-label">Top Awards</div>
+      </div>
+
+      <div class="finishes-plate plate stat span2">
+        <div class="count finishes-count">{{ me.top_finish_count }}</div>
+        <div class="count-label">Top 100 Finishes</div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='span1'>
+        <img style='display:none;' class='one-year-ribbon tooltipped' data-tooltip-id='ribbon-tooltip' data-placement='right' src="">
+      </div>
+      <div id='ribbon-tooltip' style='display:none;'>
+        Thanks for being a member for a year!
+      </div>
+    <div>
+  </div>
+</div>

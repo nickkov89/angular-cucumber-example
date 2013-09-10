@@ -1,0 +1,106 @@
+.stats {
+  .box-shadow(0px 1px 5px @gray);
+  background: @bgAccent;
+  border-bottom: 1px solid darken(@bgAccent, 10%);
+  height: 115px;
+  margin-bottom: 40px;
+
+  img.one-year-ribbon {
+    margin-top: 1px;
+  }
+}
+
+.plate {
+  .box-sizing(border-box);
+  border-right: 1px solid #ccc;
+  box-shadow: 1px 0px 0px #eee;
+  height: 115px;
+  padding-top: 15px;
+
+  &:last-child {
+    border-right: none;
+    box-shadow: none;
+  }
+
+  &.stat {
+    text-indent: -20px;
+  }
+
+  .count {
+    color: @blue;
+    font: 58px @altFontFamily;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 0px 1px 0px fade(#fff, 50%),
+                 0px -1px 0px fade(#000, 50%);
+  }
+
+  .count-label {
+    color: @gray;
+    font: 18px @serifFontFamily;
+    text-align: center;
+  }
+}
+
+.me-plate {
+  padding-top: 20px;
+
+  > * {
+    line-height: 1;
+    margin: 0;
+  }
+
+  .mug {
+    .box-shadow(0px 1px 2px #fff);
+    border: 1px solid lighten(@gray, 5%);
+    float: left;
+    height: 75px;
+    margin-right: 10px;
+    overflow: hidden;
+    width: 75px;
+  }
+
+  .name {
+    color: @maroon;
+    font: bold 20px @sansFontFamily;
+    margin-top: 6px;
+  }
+
+  .location {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 3px;
+  }
+}
+
+.status-plate {
+  padding-top: 30px;
+  text-align: center;
+
+  > * {
+    margin-left: -@gridGutterWidth;
+  }
+
+  .status-icon {
+    color: @blue;
+    font-size: 40px;
+    text-shadow: 0px 1px 0px fade(#fff, 50%),
+                 0px -1px 0px fade(#000, 50%);
+
+    &.icon-warning-sign {
+      color: #d7be59;
+    }
+  }
+
+  .status-text {
+    color: @gray;
+    font: 18px @serifFontFamily;
+    line-height: 2;
+    margin-top: 5px;
+
+    i {
+      color: @grayLight;
+      font-size: 14px;
+    }
+  }
+}
